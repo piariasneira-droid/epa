@@ -1,0 +1,22 @@
+[workspace]
+name = "epa"
+version = "0.1.0"
+description = "Combined environment for Football scraping and Shiny analysis"
+authors = ["Pablo Arias <piariasneira@gmail.com>"]
+channels = ["conda-forge", "r"]
+platforms = ["linux-64"]
+
+[tasks]
+
+[dependencies]
+r-base = ">=4.5,<4.6"
+r-tidyverse = "*"
+"r-data.table" = "*"
+r-openxlsx = "*"
+r-writexl = "*"
+r-readxl = "*"
+r-ggplot2 = "*"
+r-cowplot = "*"
+r-plotly = "*"
+r-shiny = "*"
+r-rsconnect = "*"

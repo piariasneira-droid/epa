@@ -1,0 +1,9 @@
+# Pixi environments
+.pixi/
+!.pixi/config.toml
+
+# Data
+data/
+
+# Documents
+documentos/
