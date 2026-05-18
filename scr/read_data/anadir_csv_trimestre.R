@@ -1,34 +1,32 @@
-lectura_anadir_t <- function(dir, trimestre_carga) {
-  # Cargar las librerías necesarias
-  library(data.table)
-  library(dplyr)
+append_quarterly_data <- function(quarter_to_load) {
+  # Initialize paths and variables
+  csv_dir <- "./data/microdatos/epa_microdata.csv"
+  quarterly_microdata_dir <- "./data/microdatos/csvs_desde_2024"
+  load_file_name <- paste0("EPA_", quarter_to_load, ".tab")
   
-  # Inicializar rutas y variables
-  dir_csv <- file.path(dir, "microdatos", "microdatos_juntos.csv")
-  dir_microdatos_trimestre <- file.path(dir, "microdatos", "csvs_desde_24")
-  nombre_archivo_carga <- paste0("EPA_", trimestre_carga, ".tab")
+  # Load data using data.table (optimized memory allocation)
+  epa_quarterly <- fread(file.path(quarterly_microdata_dir, load_file_name), sep = "\t", colClasses = "character")
+  epa_old <- fread(csv_dir, sep = ",", colClasses = "character")
   
-  # Cargar los datos
-  epa_tri <- fread(file.path(dir_microdatos_trimestre, nombre_archivo_carga), sep = "\t", colClasses = "character")
-  epa_old <- fread(dir_csv, sep = ",", colClasses = "character")
+  # Add FACTOR column using data.table's in-place assignment (prevents copying memory)
+  epa_quarterly[, FACTOR := FACTOREL]
   
-  # Añadir columna FACTOR
-  epa_tri$FACTOR <- epa_tri$FACTOREL
-  
-  # Calcular el último trimestre cargado
+  # Calculate the latest loaded quarter
   epa_old_max <- max(as.integer(epa_old$CICLO), na.rm = TRUE)
-  epa_tri_max <- max(as.integer(epa_tri$CICLO), na.rm = TRUE)
+  epa_quarterly_max <- max(as.integer(epa_quarterly$CICLO), na.rm = TRUE)
   
-  # Comprobar si el valor máximo de CICLO en epa_tri es mayor que en epa_old
-  if (epa_tri_max > epa_old_max) {
-    # Crear nuevo CSV
-    epa <- bind_rows(epa_old, epa_tri)
-    fwrite(epa, file = dir_csv, sep = ",")
-    message("Datos añadidos al archivo CSV.")
+  # Check if the maximum CICLO value in epa_quarterly is greater than in epa_old
+  if (epa_quarterly_max > epa_old_max) {
+    # Combine datasets using data.table's efficient rbindlist instead of bind_rows
+    epa_combined <- rbindlist(list(epa_old, epa_quarterly), use.names = TRUE, fill = TRUE)
+    
+    # Write optimized CSV
+    fwrite(epa_combined, file = csv_dir, sep = ",")
+    message("Data successfully added to the CSV file.")
   } else {
-    message("El archivo .tab ya está añadido al archivo CSV. No se añadieron datos.")
+    message("The .tab file has already been added to the CSV file. No data was appended.")
   }
   
-  # Borrar variables para liberar memoria
-  rm(dir, dir_csv, dir_microdatos_trimestre, epa_old, epa_old_max, epa_tri, epa_tri_max, nombre_archivo_carga, trimestre_carga)
+  # Clear variables from the environment to free up memory
+  rm(csv_dir, quarterly_microdata_dir, epa_old, epa_old_max, epa_quarterly, epa_quarterly_max, load_file_name, quarter_to_load)
 }

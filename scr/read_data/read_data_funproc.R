@@ -24,11 +24,12 @@ read_microdata_up_to_2020 <- function(directory, save_parquet = FALSE) {
   
   cat(">> [up to 2020] Found", length(csv_files), "CSV files\n")
   
-  epa <- map(csv_files, \(f) {
+  epa_list <- lapply(csv_files, function(f) {
     cat("   Reading:", basename(f), "\n")
-    read_delim(f, delim = "\t", col_names = TRUE, col_types = cols(.default = "c"))
-  }) |> bind_rows()
+    fread(f, sep = "\t", colClasses = "character", header = TRUE, nThread = 4)
+  })
   
+  epa <- rbindlist(epa_list, use.names = TRUE, fill = TRUE)
   cat(">> [up to 2020] Done —", nrow(epa), "rows loaded\n\n")
   
   if (save_parquet) {
@@ -65,12 +66,12 @@ read_microdata_2021_2023 <- function(directory, save_parquet = FALSE) {
   
   cat(">> [2021-2023] Found", length(csv_files), "CSV files\n")
   
-  epa_main <- map(csv_files, \(f) {
+  epa_main_list <- lapply(csv_files, function(f) {
     cat("   Reading:", basename(f), "\n")
-    read_delim(f, delim = "\t", col_names = TRUE, col_types = cols(.default = "c"))
-  }) |> bind_rows()
+    fread(f, sep = "\t", colClasses = "character", header = TRUE, nThread = 4)
+  })
   
-  # Read annex TAB files
+  epa_main <- rbindlist(epa_main_list, use.names = TRUE, fill = TRUE)
   tab_files <- list.files(
     path       = directory,
     pattern    = "^EPAAnexo_\\d{4}T\\d\\.tab$",
@@ -79,20 +80,20 @@ read_microdata_2021_2023 <- function(directory, save_parquet = FALSE) {
   )
   
   cat(">> [2021-2023] Found", length(tab_files), "annex TAB files\n")
-  
-  epa_annex <- map(tab_files, \(f) {
+  epa_annex_list <- lapply(tab_files, function(f) {
     cat("   Reading:", basename(f), "\n")
-    read_delim(f, delim = "\t", col_names = TRUE, col_types = cols(.default = "c"))
-  }) |> bind_rows()
+    fread(f, sep = "\t", colClasses = "character", header = TRUE, nThread = 4)
+  })
+  epa_annex <- rbindlist(epa_annex_list, use.names = TRUE, fill = TRUE)
   
-  # -- Join annex columns onto the main table
+  # Fast Join using data.table keys
   join_keys <- c("CICLO", "CCAA", "NVIVI", "NIVEL", "NPERS")
+  setkeyv(epa_main, join_keys)
+  setkeyv(epa_annex, join_keys)
   
-  epa <- epa_main |>
-    left_join(
-      epa_annex |> select(all_of(join_keys), FACB2021),
-      by = join_keys
-    )
+  # Left join syntax in data.table: x[y] syntax or merge()
+  cols_to_keep <- c(join_keys, "FACB2021")
+  epa <- merge(epa_main, epa_annex[, ..cols_to_keep], by = join_keys, all.x = TRUE)
   
   cat(">> [2021-2023] Done —", nrow(epa), "rows loaded\n\n")
   
@@ -127,10 +128,11 @@ read_microdata_from_2024 <- function(directory, save_parquet = FALSE) {
   
   cat(">> [from 2024] Found", length(tab_files), "TAB files\n")
   
-  epa <- map(tab_files, \(f) {
+  epa_list <- lapply(tab_files, function(f) {
     cat("   Reading:", basename(f), "\n")
-    read_delim(f, delim = "\t", col_names = TRUE, col_types = cols(.default = "c"))
-  }) |> bind_rows()
+    fread(f, sep = "\t", colClasses = "character", header = TRUE, nThread = 4)
+  })
+  epa <- rbindlist(epa_list, use.names = TRUE, fill = TRUE)
   
   cat(">> [from 2024] Done —", nrow(epa), "rows loaded\n\n")
   
@@ -142,7 +144,6 @@ read_microdata_from_2024 <- function(directory, save_parquet = FALSE) {
   
   return(epa)
 }
-
 
 # Compare data frame columns ----
 
