@@ -1,0 +1,2944 @@
+.
+├── data
+│   ├── disenos_registro
+│   ├── enlaces
+│   ├── metadata
+│   └── microdatos
+│       ├── csvs_21_23
+│       ├── csvs_desde_24
+│       └── csvs_hasta_20
+├── documentos
+│   └── horas_hogares
+├── .git
+│   ├── hooks
+│   ├── info
+│   ├── logs
+│   │   └── refs
+│   │       ├── heads
+│   │       └── remotes
+│   │           └── origin
+│   ├── objects
+│   │   ├── 10
+│   │   ├── 14
+│   │   ├── 1e
+│   │   ├── 21
+│   │   ├── 24
+│   │   ├── 25
+│   │   ├── 29
+│   │   ├── 32
+│   │   ├── 3b
+│   │   ├── 3d
+│   │   ├── 41
+│   │   ├── 44
+│   │   ├── 5a
+│   │   ├── 5c
+│   │   ├── 5d
+│   │   ├── 60
+│   │   ├── 63
+│   │   ├── 6c
+│   │   ├── 6f
+│   │   ├── 73
+│   │   ├── 78
+│   │   ├── 7f
+│   │   ├── 81
+│   │   ├── 85
+│   │   ├── 8c
+│   │   ├── 8e
+│   │   ├── 99
+│   │   ├── 9c
+│   │   ├── ab
+│   │   ├── b1
+│   │   ├── b2
+│   │   ├── b3
+│   │   ├── b8
+│   │   ├── c1
+│   │   ├── c2
+│   │   ├── ce
+│   │   ├── cf
+│   │   ├── d2
+│   │   ├── e0
+│   │   ├── e6
+│   │   ├── eb
+│   │   ├── ed
+│   │   ├── f1
+│   │   ├── f2
+│   │   ├── ff
+│   │   ├── info
+│   │   └── pack
+│   └── refs
+│       ├── heads
+│       ├── remotes
+│       │   └── origin
+│       └── tags
+├── .pixi
+│   └── envs
+│       └── default
+│           ├── bin
+│           ├── conda-meta
+│           ├── etc
+│           │   ├── conda
+│           │   │   ├── activate.d
+│           │   │   ├── deactivate.d
+│           │   │   └── test-files
+│           │   │       ├── aws-sdk-cpp
+│           │   │       │   └── 0
+│           │   │       └── zstd
+│           │   │           └── 1
+│           │   │               └── cf_test
+│           │   └── fonts
+│           │       └── conf.d
+│           ├── fonts
+│           ├── include
+│           │   ├── absl
+│           │   │   ├── algorithm
+│           │   │   ├── base
+│           │   │   │   └── internal
+│           │   │   ├── cleanup
+│           │   │   │   └── internal
+│           │   │   ├── container
+│           │   │   │   └── internal
+│           │   │   ├── crc
+│           │   │   │   └── internal
+│           │   │   ├── debugging
+│           │   │   │   └── internal
+│           │   │   ├── flags
+│           │   │   │   └── internal
+│           │   │   ├── functional
+│           │   │   │   └── internal
+│           │   │   ├── hash
+│           │   │   │   └── internal
+│           │   │   ├── log
+│           │   │   │   └── internal
+│           │   │   ├── memory
+│           │   │   ├── meta
+│           │   │   │   └── internal
+│           │   │   ├── numeric
+│           │   │   │   └── internal
+│           │   │   ├── profiling
+│           │   │   │   └── internal
+│           │   │   ├── random
+│           │   │   │   └── internal
+│           │   │   ├── status
+│           │   │   │   └── internal
+│           │   │   ├── strings
+│           │   │   │   └── internal
+│           │   │   │       └── str_format
+│           │   │   ├── synchronization
+│           │   │   │   └── internal
+│           │   │   ├── time
+│           │   │   │   └── internal
+│           │   │   │       └── cctz
+│           │   │   │           ├── include
+│           │   │   │           │   └── cctz
+│           │   │   │           └── src
+│           │   │   ├── types
+│           │   │   │   └── internal
+│           │   │   └── utility
+│           │   ├── arrow
+│           │   │   ├── acero
+│           │   │   ├── adapters
+│           │   │   │   └── orc
+│           │   │   ├── array
+│           │   │   ├── c
+│           │   │   ├── compute
+│           │   │   │   └── row
+│           │   │   ├── csv
+│           │   │   ├── dataset
+│           │   │   ├── engine
+│           │   │   │   └── substrait
+│           │   │   ├── extension
+│           │   │   ├── filesystem
+│           │   │   ├── flight
+│           │   │   │   └── sql
+│           │   │   ├── integration
+│           │   │   ├── io
+│           │   │   ├── ipc
+│           │   │   ├── json
+│           │   │   ├── telemetry
+│           │   │   ├── tensor
+│           │   │   ├── testing
+│           │   │   ├── util
+│           │   │   └── vendored
+│           │   │       ├── datetime
+│           │   │       ├── double-conversion
+│           │   │       ├── pcg
+│           │   │       ├── portable-snippets
+│           │   │       ├── safeint
+│           │   │       └── xxhash
+│           │   ├── aws
+│           │   │   ├── auth
+│           │   │   ├── cal
+│           │   │   ├── checksums
+│           │   │   ├── cognito-identity
+│           │   │   │   └── model
+│           │   │   ├── common
+│           │   │   │   ├── external
+│           │   │   │   └── posix
+│           │   │   ├── compression
+│           │   │   ├── config
+│           │   │   │   └── model
+│           │   │   ├── core
+│           │   │   │   ├── auth
+│           │   │   │   │   ├── bearer-token-provider
+│           │   │   │   │   ├── signer
+│           │   │   │   │   └── signer-provider
+│           │   │   │   ├── client
+│           │   │   │   ├── config
+│           │   │   │   │   └── defaults
+│           │   │   │   ├── endpoint
+│           │   │   │   │   └── internal
+│           │   │   │   ├── external
+│           │   │   │   │   ├── cjson
+│           │   │   │   │   └── tinyxml2
+│           │   │   │   ├── http
+│           │   │   │   │   ├── curl
+│           │   │   │   │   └── standard
+│           │   │   │   ├── internal
+│           │   │   │   ├── monitoring
+│           │   │   │   ├── net
+│           │   │   │   ├── platform
+│           │   │   │   └── utils
+│           │   │   │       ├── base64
+│           │   │   │       ├── cbor
+│           │   │   │       ├── component-registry
+│           │   │   │       ├── crypto
+│           │   │   │       │   └── crt
+│           │   │   │       ├── event
+│           │   │   │       ├── json
+│           │   │   │       ├── logging
+│           │   │   │       ├── memory
+│           │   │   │       │   └── stl
+│           │   │   │       ├── ratelimiter
+│           │   │   │       ├── stream
+│           │   │   │       ├── threading
+│           │   │   │       └── xml
+│           │   │   ├── crt
+│           │   │   │   ├── auth
+│           │   │   │   ├── cbor
+│           │   │   │   ├── checksum
+│           │   │   │   ├── crypto
+│           │   │   │   ├── endpoints
+│           │   │   │   ├── http
+│           │   │   │   ├── io
+│           │   │   │   └── mqtt
+│           │   │   ├── event-stream
+│           │   │   ├── http
+│           │   │   ├── identity-management
+│           │   │   │   └── auth
+│           │   │   ├── io
+│           │   │   ├── iot
+│           │   │   ├── logs
+│           │   │   │   └── model
+│           │   │   ├── monitoring
+│           │   │   │   └── model
+│           │   │   ├── mqtt
+│           │   │   │   ├── private
+│           │   │   │   ├── request-response
+│           │   │   │   └── v5
+│           │   │   ├── s3
+│           │   │   │   └── model
+│           │   │   ├── sdkutils
+│           │   │   ├── secretsmanager
+│           │   │   │   └── model
+│           │   │   ├── sns
+│           │   │   │   └── model
+│           │   │   ├── sqs
+│           │   │   │   └── model
+│           │   │   ├── sts
+│           │   │   │   └── model
+│           │   │   ├── testing
+│           │   │   └── transfer
+│           │   ├── azure
+│           │   │   ├── core
+│           │   │   │   ├── credentials
+│           │   │   │   ├── cryptography
+│           │   │   │   ├── diagnostics
+│           │   │   │   ├── http
+│           │   │   │   │   └── policies
+│           │   │   │   ├── internal
+│           │   │   │   │   ├── credentials
+│           │   │   │   │   ├── cryptography
+│           │   │   │   │   ├── diagnostics
+│           │   │   │   │   ├── http
+│           │   │   │   │   ├── io
+│           │   │   │   │   ├── json
+│           │   │   │   │   └── tracing
+│           │   │   │   ├── io
+│           │   │   │   └── tracing
+│           │   │   ├── identity
+│           │   │   │   └── detail
+│           │   │   └── storage
+│           │   │       ├── blobs
+│           │   │       ├── common
+│           │   │       │   └── internal
+│           │   │       └── files
+│           │   │           └── datalake
+│           │   ├── cairo
+│           │   ├── crc32c
+│           │   ├── curl
+│           │   ├── editline
+│           │   ├── event2
+│           │   ├── fontconfig
+│           │   ├── fribidi
+│           │   ├── gflags
+│           │   ├── gio-unix-2.0
+│           │   │   └── gio
+│           │   ├── glib-2.0
+│           │   │   ├── gio
+│           │   │   ├── girepository
+│           │   │   ├── glib
+│           │   │   │   └── deprecated
+│           │   │   ├── gmodule
+│           │   │   └── gobject
+│           │   ├── glog
+│           │   ├── google
+│           │   │   └── protobuf
+│           │   │       ├── compiler
+│           │   │       │   ├── cpp
+│           │   │       │   ├── csharp
+│           │   │       │   ├── java
+│           │   │       │   ├── kotlin
+│           │   │       │   ├── objectivec
+│           │   │       │   ├── php
+│           │   │       │   ├── python
+│           │   │       │   └── ruby
+│           │   │       ├── io
+│           │   │       ├── json
+│           │   │       │   └── internal
+│           │   │       ├── stubs
+│           │   │       └── util
+│           │   ├── graphite2
+│           │   ├── grpc
+│           │   │   ├── event_engine
+│           │   │   │   └── internal
+│           │   │   ├── impl
+│           │   │   │   └── codegen
+│           │   │   └── support
+│           │   ├── grpc++
+│           │   │   ├── ext
+│           │   │   ├── generic
+│           │   │   ├── impl
+│           │   │   │   └── codegen
+│           │   │   │       └── security
+│           │   │   ├── security
+│           │   │   ├── support
+│           │   │   └── test
+│           │   ├── grpcpp
+│           │   │   ├── ext
+│           │   │   ├── generic
+│           │   │   ├── impl
+│           │   │   │   └── codegen
+│           │   │   │       └── security
+│           │   │   ├── security
+│           │   │   ├── support
+│           │   │   └── test
+│           │   ├── gsl
+│           │   ├── gssapi
+│           │   ├── gssrpc
+│           │   ├── harfbuzz
+│           │   ├── kadm5
+│           │   ├── krb5
+│           │   ├── libpng16
+│           │   ├── ncurses
+│           │   ├── ncursesw
+│           │   ├── nghttp2
+│           │   ├── nlohmann
+│           │   │   ├── detail
+│           │   │   │   ├── conversions
+│           │   │   │   ├── input
+│           │   │   │   ├── iterators
+│           │   │   │   ├── meta
+│           │   │   │   │   └── call_std
+│           │   │   │   └── output
+│           │   │   └── thirdparty
+│           │   │       └── hedley
+│           │   ├── openssl
+│           │   ├── opentelemetry
+│           │   │   ├── baggage
+│           │   │   │   └── propagation
+│           │   │   ├── common
+│           │   │   ├── context
+│           │   │   │   └── propagation
+│           │   │   ├── detail
+│           │   │   ├── exporters
+│           │   │   │   ├── memory
+│           │   │   │   ├── ostream
+│           │   │   │   ├── otlp
+│           │   │   │   ├── prometheus
+│           │   │   │   └── zipkin
+│           │   │   ├── ext
+│           │   │   │   └── http
+│           │   │   │       ├── client
+│           │   │   │       │   └── curl
+│           │   │   │       ├── common
+│           │   │   │       └── server
+│           │   │   ├── logs
+│           │   │   ├── metrics
+│           │   │   ├── nostd
+│           │   │   │   ├── detail
+│           │   │   │   └── internal
+│           │   │   │       └── absl
+│           │   │   │           ├── base
+│           │   │   │           │   └── internal
+│           │   │   │           ├── meta
+│           │   │   │           ├── types
+│           │   │   │           │   └── internal
+│           │   │   │           └── utility
+│           │   │   ├── plugin
+│           │   │   │   └── detail
+│           │   │   ├── proto
+│           │   │   │   ├── collector
+│           │   │   │   │   ├── logs
+│           │   │   │   │   │   └── v1
+│           │   │   │   │   ├── metrics
+│           │   │   │   │   │   └── v1
+│           │   │   │   │   ├── profiles
+│           │   │   │   │   │   └── v1development
+│           │   │   │   │   └── trace
+│           │   │   │   │       └── v1
+│           │   │   │   ├── common
+│           │   │   │   │   └── v1
+│           │   │   │   ├── logs
+│           │   │   │   │   └── v1
+│           │   │   │   ├── metrics
+│           │   │   │   │   └── v1
+│           │   │   │   ├── profiles
+│           │   │   │   │   └── v1development
+│           │   │   │   ├── resource
+│           │   │   │   │   └── v1
+│           │   │   │   └── trace
+│           │   │   │       └── v1
+│           │   │   ├── sdk
+│           │   │   │   ├── common
+│           │   │   │   ├── instrumentationlibrary
+│           │   │   │   ├── instrumentationscope
+│           │   │   │   ├── logs
+│           │   │   │   ├── metrics
+│           │   │   │   │   ├── aggregation
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── exemplar
+│           │   │   │   │   ├── export
+│           │   │   │   │   ├── state
+│           │   │   │   │   └── view
+│           │   │   │   ├── resource
+│           │   │   │   ├── trace
+│           │   │   │   │   └── samplers
+│           │   │   │   └── version
+│           │   │   ├── semconv
+│           │   │   │   └── incubating
+│           │   │   ├── std
+│           │   │   └── trace
+│           │   │       └── propagation
+│           │   │           └── detail
+│           │   ├── orc
+│           │   │   └── sargs
+│           │   ├── pango-1.0
+│           │   │   └── pango
+│           │   ├── parquet
+│           │   │   ├── api
+│           │   │   ├── arrow
+│           │   │   ├── encryption
+│           │   │   └── geospatial
+│           │   ├── pixman-1
+│           │   ├── prometheus
+│           │   │   └── detail
+│           │   ├── re2
+│           │   ├── readline
+│           │   ├── s2n
+│           │   │   └── unstable
+│           │   ├── smithy
+│           │   │   ├── client
+│           │   │   │   ├── common
+│           │   │   │   ├── features
+│           │   │   │   └── serializer
+│           │   │   ├── identity
+│           │   │   │   ├── auth
+│           │   │   │   │   └── built-in
+│           │   │   │   ├── identity
+│           │   │   │   │   └── impl
+│           │   │   │   ├── resolver
+│           │   │   │   │   └── built-in
+│           │   │   │   └── signer
+│           │   │   │       └── built-in
+│           │   │   ├── interceptor
+│           │   │   └── tracing
+│           │   ├── thrift
+│           │   │   ├── async
+│           │   │   ├── concurrency
+│           │   │   ├── processor
+│           │   │   ├── protocol
+│           │   │   ├── qt
+│           │   │   ├── server
+│           │   │   ├── transport
+│           │   │   └── windows
+│           │   ├── unicode
+│           │   ├── upb
+│           │   │   ├── base
+│           │   │   │   └── internal
+│           │   │   ├── hash
+│           │   │   ├── json
+│           │   │   ├── lex
+│           │   │   ├── mem
+│           │   │   │   └── internal
+│           │   │   ├── message
+│           │   │   │   └── internal
+│           │   │   ├── mini_descriptor
+│           │   │   │   └── internal
+│           │   │   ├── mini_table
+│           │   │   │   └── internal
+│           │   │   ├── port
+│           │   │   ├── reflection
+│           │   │   │   └── internal
+│           │   │   ├── text
+│           │   │   │   └── internal
+│           │   │   ├── util
+│           │   │   └── wire
+│           │   │       ├── decode_fast
+│           │   │       └── internal
+│           │   ├── uuid
+│           │   ├── uv
+│           │   ├── webp
+│           │   │   └── sharpyuv
+│           │   ├── X11
+│           │   │   ├── extensions
+│           │   │   ├── ICE
+│           │   │   └── SM
+│           │   └── xcb
+│           ├── lib
+│           │   ├── bfd-plugins
+│           │   ├── cairo
+│           │   ├── cmake
+│           │   │   ├── absl
+│           │   │   ├── Arrow
+│           │   │   ├── ArrowAcero
+│           │   │   ├── ArrowCompute
+│           │   │   ├── ArrowDataset
+│           │   │   ├── ArrowSubstrait
+│           │   │   ├── aws-c-auth
+│           │   │   │   └── shared
+│           │   │   ├── aws-c-cal
+│           │   │   │   ├── modules
+│           │   │   │   └── shared
+│           │   │   ├── aws-c-common
+│           │   │   │   ├── modules
+│           │   │   │   └── shared
+│           │   │   ├── aws-c-compression
+│           │   │   │   └── shared
+│           │   │   ├── aws-c-event-stream
+│           │   │   │   └── shared
+│           │   │   ├── aws-checksums
+│           │   │   │   └── shared
+│           │   │   ├── aws-c-http
+│           │   │   │   └── shared
+│           │   │   ├── aws-c-io
+│           │   │   │   └── shared
+│           │   │   ├── aws-c-mqtt
+│           │   │   │   └── shared
+│           │   │   ├── aws-cpp-sdk-cognito-identity
+│           │   │   ├── aws-cpp-sdk-config
+│           │   │   ├── aws-cpp-sdk-core
+│           │   │   ├── aws-cpp-sdk-identity-management
+│           │   │   ├── aws-cpp-sdk-logs
+│           │   │   ├── aws-cpp-sdk-monitoring
+│           │   │   ├── aws-cpp-sdk-s3
+│           │   │   ├── aws-cpp-sdk-secretsmanager
+│           │   │   ├── aws-cpp-sdk-sns
+│           │   │   ├── aws-cpp-sdk-sqs
+│           │   │   ├── aws-cpp-sdk-sts
+│           │   │   ├── aws-cpp-sdk-transfer
+│           │   │   ├── aws-crt-cpp
+│           │   │   │   └── shared
+│           │   │   ├── aws-c-s3
+│           │   │   │   └── shared
+│           │   │   ├── aws-c-sdkutils
+│           │   │   │   └── shared
+│           │   │   ├── AWSSDK
+│           │   │   │   └── platform
+│           │   │   ├── c-ares
+│           │   │   ├── Crc32c
+│           │   │   ├── gflags
+│           │   │   ├── glog
+│           │   │   ├── grpc
+│           │   │   │   └── modules
+│           │   │   ├── harfbuzz
+│           │   │   ├── libdeflate
+│           │   │   ├── libevent
+│           │   │   ├── libjpeg-turbo
+│           │   │   ├── libssh2
+│           │   │   ├── OpenSSL
+│           │   │   ├── opentelemetry-cpp
+│           │   │   ├── orc
+│           │   │   ├── Parquet
+│           │   │   ├── pcre2
+│           │   │   ├── prometheus-cpp
+│           │   │   ├── protobuf
+│           │   │   ├── re2
+│           │   │   ├── Snappy
+│           │   │   ├── thrift
+│           │   │   ├── utf8proc
+│           │   │   ├── utf8_range
+│           │   │   └── zstd
+│           │   ├── gcc
+│           │   │   └── x86_64-conda-linux-gnu
+│           │   │       └── 15.2.0
+│           │   │           ├── finclude
+│           │   │           ├── include
+│           │   │           │   ├── c++
+│           │   │           │   │   ├── backward
+│           │   │           │   │   ├── bits
+│           │   │           │   │   ├── debug
+│           │   │           │   │   ├── decimal
+│           │   │           │   │   ├── experimental
+│           │   │           │   │   │   └── bits
+│           │   │           │   │   ├── ext
+│           │   │           │   │   │   └── pb_ds
+│           │   │           │   │   │       └── detail
+│           │   │           │   │   │           ├── binary_heap_
+│           │   │           │   │   │           ├── binomial_heap_
+│           │   │           │   │   │           ├── binomial_heap_base_
+│           │   │           │   │   │           ├── bin_search_tree_
+│           │   │           │   │   │           ├── branch_policy
+│           │   │           │   │   │           ├── cc_hash_table_map_
+│           │   │           │   │   │           ├── eq_fn
+│           │   │           │   │   │           ├── gp_hash_table_map_
+│           │   │           │   │   │           ├── hash_fn
+│           │   │           │   │   │           ├── left_child_next_sibling_heap_
+│           │   │           │   │   │           ├── list_update_map_
+│           │   │           │   │   │           ├── list_update_policy
+│           │   │           │   │   │           ├── ov_tree_map_
+│           │   │           │   │   │           ├── pairing_heap_
+│           │   │           │   │   │           ├── pat_trie_
+│           │   │           │   │   │           ├── rb_tree_map_
+│           │   │           │   │   │           ├── rc_binomial_heap_
+│           │   │           │   │   │           ├── resize_policy
+│           │   │           │   │   │           ├── splay_tree_
+│           │   │           │   │   │           ├── thin_heap_
+│           │   │           │   │   │           ├── tree_policy
+│           │   │           │   │   │           ├── trie_policy
+│           │   │           │   │   │           └── unordered_iterator
+│           │   │           │   │   ├── parallel
+│           │   │           │   │   ├── pstl
+│           │   │           │   │   ├── tr1
+│           │   │           │   │   ├── tr2
+│           │   │           │   │   └── x86_64-conda-linux-gnu
+│           │   │           │   │       ├── bits
+│           │   │           │   │       └── ext
+│           │   │           │   └── sanitizer
+│           │   │           ├── include-fixed
+│           │   │           │   └── linux
+│           │   │           ├── install-tools
+│           │   │           │   └── include
+│           │   │           └── plugin
+│           │   │               └── include
+│           │   │                   ├── ada
+│           │   │                   │   └── gcc-interface
+│           │   │                   ├── analyzer
+│           │   │                   ├── c
+│           │   │                   ├── c-family
+│           │   │                   ├── common
+│           │   │                   │   └── config
+│           │   │                   │       └── i386
+│           │   │                   ├── config
+│           │   │                   │   └── i386
+│           │   │                   ├── cp
+│           │   │                   ├── d
+│           │   │                   ├── m2
+│           │   │                   └── objc
+│           │   ├── girepository-1.0
+│           │   ├── icu
+│           │   │   ├── 78.3
+│           │   │   └── current -> 78.3
+│           │   ├── itcl4.2.3
+│           │   ├── krb5
+│           │   │   └── plugins
+│           │   │       ├── kdb
+│           │   │       ├── preauth
+│           │   │       └── tls
+│           │   ├── pkgconfig
+│           │   ├── R
+│           │   │   ├── bin
+│           │   │   │   └── exec
+│           │   │   ├── doc
+│           │   │   │   ├── html
+│           │   │   │   │   └── katex
+│           │   │   │   │       └── fonts
+│           │   │   │   └── manual
+│           │   │   │       └── images
+│           │   │   ├── etc
+│           │   │   ├── include
+│           │   │   │   └── R_ext
+│           │   │   ├── lib
+│           │   │   ├── library
+│           │   │   │   ├── arrow
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── askpass
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── assertthat
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── backports
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── base
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── base64enc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── bit
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── bit64
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── blob
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── broom
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── bslib
+│           │   │   │   │   ├── brand
+│           │   │   │   │   │   └── bs5
+│           │   │   │   │   ├── bs3compat
+│           │   │   │   │   │   ├── fonts
+│           │   │   │   │   │   └── js
+│           │   │   │   │   ├── bslib-scss
+│           │   │   │   │   ├── builtin
+│           │   │   │   │   │   └── bs5
+│           │   │   │   │   │       └── shiny
+│           │   │   │   │   │           ├── ionrangeslider
+│           │   │   │   │   │           └── tables
+│           │   │   │   │   ├── components
+│           │   │   │   │   │   ├── dist
+│           │   │   │   │   │   │   └── webComponents
+│           │   │   │   │   │   └── scss
+│           │   │   │   │   │       └── mixins
+│           │   │   │   │   ├── css-precompiled
+│           │   │   │   │   │   ├── 3
+│           │   │   │   │   │   ├── 4
+│           │   │   │   │   │   └── 5
+│           │   │   │   │   ├── custom
+│           │   │   │   │   ├── examples-shiny
+│           │   │   │   │   │   ├── brand.yml
+│           │   │   │   │   │   ├── build-a-box
+│           │   │   │   │   │   │   ├── R
+│           │   │   │   │   │   │   └── www
+│           │   │   │   │   │   ├── card
+│           │   │   │   │   │   │   └── www
+│           │   │   │   │   │   ├── code-editor
+│           │   │   │   │   │   │   └── examples
+│           │   │   │   │   │   ├── flights
+│           │   │   │   │   │   │   └── www
+│           │   │   │   │   │   ├── toast
+│           │   │   │   │   │   └── value_box
+│           │   │   │   │   ├── fonts
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── lib
+│           │   │   │   │   │   ├── bs3
+│           │   │   │   │   │   │   └── assets
+│           │   │   │   │   │   │       ├── fonts
+│           │   │   │   │   │   │       │   └── bootstrap
+│           │   │   │   │   │   │       ├── javascripts
+│           │   │   │   │   │   │       │   └── bootstrap
+│           │   │   │   │   │   │       └── stylesheets
+│           │   │   │   │   │   │           └── bootstrap
+│           │   │   │   │   │   │               └── mixins
+│           │   │   │   │   │   ├── bs4
+│           │   │   │   │   │   │   ├── dist
+│           │   │   │   │   │   │   │   └── js
+│           │   │   │   │   │   │   └── scss
+│           │   │   │   │   │   │       ├── mixins
+│           │   │   │   │   │   │       ├── utilities
+│           │   │   │   │   │   │       └── vendor
+│           │   │   │   │   │   ├── bs5
+│           │   │   │   │   │   │   ├── dist
+│           │   │   │   │   │   │   │   └── js
+│           │   │   │   │   │   │   └── scss
+│           │   │   │   │   │   │       ├── forms
+│           │   │   │   │   │   │       ├── helpers
+│           │   │   │   │   │   │       ├── mixins
+│           │   │   │   │   │   │       ├── utilities
+│           │   │   │   │   │   │       └── vendor
+│           │   │   │   │   │   ├── bs-a11y-p
+│           │   │   │   │   │   │   ├── plugins
+│           │   │   │   │   │   │   │   ├── css
+│           │   │   │   │   │   │   │   └── js
+│           │   │   │   │   │   │   └── src
+│           │   │   │   │   │   │       ├── js
+│           │   │   │   │   │   │       ├── less
+│           │   │   │   │   │   │       │   └── partials
+│           │   │   │   │   │   │       ├── meteor
+│           │   │   │   │   │   │       └── sass
+│           │   │   │   │   │   │           └── partials
+│           │   │   │   │   │   ├── bs-colorpicker
+│           │   │   │   │   │   │   ├── css
+│           │   │   │   │   │   │   └── js
+│           │   │   │   │   │   ├── bsw3
+│           │   │   │   │   │   │   ├── cerulean
+│           │   │   │   │   │   │   ├── cosmo
+│           │   │   │   │   │   │   ├── cyborg
+│           │   │   │   │   │   │   ├── darkly
+│           │   │   │   │   │   │   ├── flatly
+│           │   │   │   │   │   │   ├── journal
+│           │   │   │   │   │   │   ├── lumen
+│           │   │   │   │   │   │   ├── paper
+│           │   │   │   │   │   │   ├── readable
+│           │   │   │   │   │   │   ├── sandstone
+│           │   │   │   │   │   │   ├── simplex
+│           │   │   │   │   │   │   ├── slate
+│           │   │   │   │   │   │   ├── spacelab
+│           │   │   │   │   │   │   ├── superhero
+│           │   │   │   │   │   │   ├── united
+│           │   │   │   │   │   │   └── yeti
+│           │   │   │   │   │   ├── bsw4
+│           │   │   │   │   │   │   └── dist
+│           │   │   │   │   │   │       ├── cerulean
+│           │   │   │   │   │   │       ├── cosmo
+│           │   │   │   │   │   │       ├── cyborg
+│           │   │   │   │   │   │       ├── darkly
+│           │   │   │   │   │   │       ├── flatly
+│           │   │   │   │   │   │       ├── journal
+│           │   │   │   │   │   │       ├── litera
+│           │   │   │   │   │   │       ├── lumen
+│           │   │   │   │   │   │       ├── lux
+│           │   │   │   │   │   │       ├── materia
+│           │   │   │   │   │   │       ├── minty
+│           │   │   │   │   │   │       ├── pulse
+│           │   │   │   │   │   │       ├── sandstone
+│           │   │   │   │   │   │       ├── simplex
+│           │   │   │   │   │   │       ├── sketchy
+│           │   │   │   │   │   │       ├── slate
+│           │   │   │   │   │   │       ├── solar
+│           │   │   │   │   │   │       ├── spacelab
+│           │   │   │   │   │   │       ├── superhero
+│           │   │   │   │   │   │       ├── united
+│           │   │   │   │   │   │       └── yeti
+│           │   │   │   │   │   ├── bsw5
+│           │   │   │   │   │   │   └── dist
+│           │   │   │   │   │   │       ├── cerulean
+│           │   │   │   │   │   │       ├── cosmo
+│           │   │   │   │   │   │       ├── cyborg
+│           │   │   │   │   │   │       ├── darkly
+│           │   │   │   │   │   │       ├── flatly
+│           │   │   │   │   │   │       ├── journal
+│           │   │   │   │   │   │       ├── litera
+│           │   │   │   │   │   │       ├── lumen
+│           │   │   │   │   │   │       ├── lux
+│           │   │   │   │   │   │       ├── materia
+│           │   │   │   │   │   │       ├── minty
+│           │   │   │   │   │   │       ├── morph
+│           │   │   │   │   │   │       ├── pulse
+│           │   │   │   │   │   │       ├── quartz
+│           │   │   │   │   │   │       ├── sandstone
+│           │   │   │   │   │   │       ├── simplex
+│           │   │   │   │   │   │       ├── sketchy
+│           │   │   │   │   │   │       ├── slate
+│           │   │   │   │   │   │       ├── solar
+│           │   │   │   │   │   │       ├── spacelab
+│           │   │   │   │   │   │       ├── superhero
+│           │   │   │   │   │   │       ├── united
+│           │   │   │   │   │   │       ├── vapor
+│           │   │   │   │   │   │       ├── yeti
+│           │   │   │   │   │   │       └── zephyr
+│           │   │   │   │   │   └── prism-code-editor
+│           │   │   │   │   │       ├── extensions
+│           │   │   │   │   │       │   └── copyButton
+│           │   │   │   │   │       ├── languages
+│           │   │   │   │   │       ├── prism
+│           │   │   │   │   │       │   └── languages
+│           │   │   │   │   │       ├── themes
+│           │   │   │   │   │       └── utils
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── rmarkdown
+│           │   │   │   │   │   └── templates
+│           │   │   │   │   │       ├── legacy
+│           │   │   │   │   │       │   └── skeleton
+│           │   │   │   │   │       ├── new
+│           │   │   │   │   │       │   └── skeleton
+│           │   │   │   │   │       └── real-time
+│           │   │   │   │   │           └── skeleton
+│           │   │   │   │   ├── sass-utils
+│           │   │   │   │   ├── themer
+│           │   │   │   │   └── themer-demo
+│           │   │   │   │       ├── deploy
+│           │   │   │   │       └── R
+│           │   │   │   ├── cachem
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── callr
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── cellranger
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── cli
+│           │   │   │   │   ├── examples
+│           │   │   │   │   │   └── apps
+│           │   │   │   │   ├── exec
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   │   └── cli
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── shiny
+│           │   │   │   │       ├── along
+│           │   │   │   │       ├── format
+│           │   │   │   │       ├── nested
+│           │   │   │   │       ├── output
+│           │   │   │   │       └── simple
+│           │   │   │   ├── clipr
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── rstudio
+│           │   │   │   ├── colorspace
+│           │   │   │   │   ├── cvdemulator
+│           │   │   │   │   │   ├── html
+│           │   │   │   │   │   └── www
+│           │   │   │   │   │       └── images
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── hclcolorpicker
+│           │   │   │   │   │   ├── html
+│           │   │   │   │   │   └── www
+│           │   │   │   │   ├── hclwizard
+│           │   │   │   │   │   ├── html
+│           │   │   │   │   │   └── www
+│           │   │   │   │   │       └── images
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── commonmark
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── compiler
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── conflicted
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── cowplot
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── cpp11
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   │   ├── cpp11
+│           │   │   │   │   │   └── fmt
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── crayon
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── crosstalk
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── lib
+│           │   │   │   │   │   ├── bootstrap
+│           │   │   │   │   │   ├── ionrangeslider
+│           │   │   │   │   │   │   ├── css
+│           │   │   │   │   │   │   ├── js
+│           │   │   │   │   │   │   └── scss
+│           │   │   │   │   │   ├── jquery
+│           │   │   │   │   │   ├── selectize
+│           │   │   │   │   │   │   ├── css
+│           │   │   │   │   │   │   └── js
+│           │   │   │   │   │   └── strftime
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── www
+│           │   │   │   │       ├── css
+│           │   │   │   │       ├── js
+│           │   │   │   │       └── scss
+│           │   │   │   ├── curl
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── datasets
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   └── Meta
+│           │   │   │   ├── data.table
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── po
+│           │   │   │   │   │   ├── en@quot
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   ├── es
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   ├── fr
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   ├── pt_BR
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   ├── ru
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   └── zh_CN
+│           │   │   │   │   │       └── LC_MESSAGES
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── tests
+│           │   │   │   │       └── csvy
+│           │   │   │   ├── DBI
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── dbplyr
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── digest
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── tinytest
+│           │   │   │   ├── dplyr
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── dtplyr
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── ellipsis
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── evaluate
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── fansi
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── farver
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── fastmap
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── fontawesome
+│           │   │   │   │   ├── apps
+│           │   │   │   │   │   └── 138-icon-fontawesome
+│           │   │   │   │   ├── fontawesome
+│           │   │   │   │   │   ├── css
+│           │   │   │   │   │   └── webfonts
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── forcats
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── fs
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── gargle
+│           │   │   │   │   ├── discovery-doc-ingest
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── pseudo-oob
+│           │   │   │   │   │   └── google-callback
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── secret
+│           │   │   │   ├── generics
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── ggplot2
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── glue
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── googledrive
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   │   ├── data
+│           │   │   │   │   │   └── example_files
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── secret
+│           │   │   │   ├── googlesheets4
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── secret
+│           │   │   │   ├── graphics
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── grDevices
+│           │   │   │   │   ├── afm
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── enc
+│           │   │   │   │   ├── fonts
+│           │   │   │   │   │   ├── Montserrat
+│           │   │   │   │   │   │   └── static
+│           │   │   │   │   │   └── Roboto
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── icc
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── grid
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── gtable
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── haven
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── examples
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── hexbin
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── highr
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── hms
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── htmltools
+│           │   │   │   │   ├── fill
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── htmlwidgets
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── templates
+│           │   │   │   │   └── www
+│           │   │   │   ├── httpuv
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── example-static-site
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── httr
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── httr2
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── ids
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── isoband
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── jose
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── jquerylib
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── lib
+│           │   │   │   │   │   ├── 1.12.4
+│           │   │   │   │   │   ├── 2.2.4
+│           │   │   │   │   │   └── 3.6.0
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── jsonlite
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── knitr
+│           │   │   │   │   ├── bin
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── examples
+│           │   │   │   │   │   └── child
+│           │   │   │   │   │       └── sub
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── misc
+│           │   │   │   │   ├── opencpu
+│           │   │   │   │   │   └── apps
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── themes
+│           │   │   │   ├── labeling
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── later
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── lattice
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── po
+│           │   │   │   │   │   ├── de
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   ├── en@quot
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   ├── fr
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   ├── it
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   ├── ko
+│           │   │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   │   └── pl
+│           │   │   │   │   │       └── LC_MESSAGES
+│           │   │   │   │   └── R
+│           │   │   │   ├── lazyeval
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── lifecycle
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   ├── figures
+│           │   │   │   │   │   └── macros
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── lintr
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── lubridate
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── pkgdown
+│           │   │   │   │   │   └── assets
+│           │   │   │   │   └── R
+│           │   │   │   ├── magrittr
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── memoise
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── methods
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── mime
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── modelr
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── munsell
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── raw
+│           │   │   │   ├── openssl
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── openxlsx
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── otel
+│           │   │   │   │   ├── dox
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── packrat
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── resources
+│           │   │   │   │   ├── rstudio
+│           │   │   │   │   └── vendor
+│           │   │   │   ├── parallel
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── pillar
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── pkgconfig
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── PKI
+│           │   │   │   │   ├── certs
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── plotly
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── examples
+│           │   │   │   │   │   ├── rmd
+│           │   │   │   │   │   │   ├── flexdashboard
+│           │   │   │   │   │   │   ├── MathJax
+│           │   │   │   │   │   │   ├── onRenderHover
+│           │   │   │   │   │   │   └── printing
+│           │   │   │   │   │   └── shiny
+│           │   │   │   │   │       ├── async
+│           │   │   │   │   │       ├── basic
+│           │   │   │   │   │       ├── crossfilter
+│           │   │   │   │   │       ├── crossfilter_compare
+│           │   │   │   │   │       ├── crossfilter_kde
+│           │   │   │   │   │       ├── crossfilter_scatter
+│           │   │   │   │   │       ├── Diamonds
+│           │   │   │   │   │       ├── drag_brush
+│           │   │   │   │   │       ├── drag_lines
+│           │   │   │   │   │       ├── drag_markers
+│           │   │   │   │   │       ├── drill_down
+│           │   │   │   │   │       ├── DT
+│           │   │   │   │   │       ├── event_data
+│           │   │   │   │   │       │   └── tests
+│           │   │   │   │   │       │       └── testthat
+│           │   │   │   │   │       │           └── _snaps
+│           │   │   │   │   │       │               └── shinytest2
+│           │   │   │   │   │       ├── event_data_3D
+│           │   │   │   │   │       ├── event_data_annotation
+│           │   │   │   │   │       ├── event_data_click
+│           │   │   │   │   │       ├── event_data_click_map
+│           │   │   │   │   │       ├── event_data_legends
+│           │   │   │   │   │       ├── event_data_modules
+│           │   │   │   │   │       ├── event_data_parcoords
+│           │   │   │   │   │       ├── event_data_persist
+│           │   │   │   │   │       ├── event_data_select
+│           │   │   │   │   │       ├── event_priority
+│           │   │   │   │   │       ├── ggplotly_sizing
+│           │   │   │   │   │       ├── lmGadget
+│           │   │   │   │   │       ├── MathJax
+│           │   │   │   │   │       ├── Movies
+│           │   │   │   │   │       ├── proxy_mapbox
+│           │   │   │   │   │       ├── proxy_relayout
+│           │   │   │   │   │       ├── proxy_restyle_canada
+│           │   │   │   │   │       ├── proxy_restyle_economics
+│           │   │   │   │   │       ├── stream
+│           │   │   │   │   │       ├── UN_Advanced
+│           │   │   │   │   │       │   └── Data
+│           │   │   │   │   │       └── UN_Simple
+│           │   │   │   │   │           └── Data
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── htmlwidgets
+│           │   │   │   │   │   └── lib
+│           │   │   │   │   │       ├── colourpicker
+│           │   │   │   │   │       ├── mathjax
+│           │   │   │   │   │       ├── plotlyjs
+│           │   │   │   │   │       │   └── locales
+│           │   │   │   │   │       ├── selectize
+│           │   │   │   │   │       ├── setprototypeof
+│           │   │   │   │   │       └── typedarray
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── prettyunits
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── processx
+│           │   │   │   │   ├── bin
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   │   └── processx
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── progress
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── promises
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── ps
+│           │   │   │   │   ├── bin
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── tools
+│           │   │   │   ├── purrr
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── R6
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── ragg
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── rappdirs
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── RColorBrewer
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── Rcpp
+│           │   │   │   │   ├── announce
+│           │   │   │   │   ├── bib
+│           │   │   │   │   ├── discovery
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── examples
+│           │   │   │   │   │   ├── Attributes
+│           │   │   │   │   │   ├── ConvolveBenchmarks
+│           │   │   │   │   │   ├── FastLM
+│           │   │   │   │   │   ├── functionCallback
+│           │   │   │   │   │   ├── Misc
+│           │   │   │   │   │   ├── OpenMP
+│           │   │   │   │   │   ├── performance
+│           │   │   │   │   │   ├── RcppGibbs
+│           │   │   │   │   │   ├── RcppInline
+│           │   │   │   │   │   └── SugarPerformance
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   │   ├── doxygen
+│           │   │   │   │   │   └── Rcpp
+│           │   │   │   │   │       ├── api
+│           │   │   │   │   │       │   ├── bones
+│           │   │   │   │   │       │   └── meat
+│           │   │   │   │   │       │       └── module
+│           │   │   │   │   │       ├── Benchmark
+│           │   │   │   │   │       ├── date_datetime
+│           │   │   │   │   │       ├── hash
+│           │   │   │   │   │       ├── internal
+│           │   │   │   │   │       ├── iostream
+│           │   │   │   │   │       ├── macros
+│           │   │   │   │   │       ├── module
+│           │   │   │   │   │       ├── platform
+│           │   │   │   │   │       ├── protection
+│           │   │   │   │   │       ├── proxy
+│           │   │   │   │   │       ├── r
+│           │   │   │   │   │       ├── stats
+│           │   │   │   │   │       │   ├── dpq
+│           │   │   │   │   │       │   └── random
+│           │   │   │   │   │       ├── storage
+│           │   │   │   │   │       ├── sugar
+│           │   │   │   │   │       │   ├── block
+│           │   │   │   │   │       │   ├── functions
+│           │   │   │   │   │       │   │   ├── mapply
+│           │   │   │   │   │       │   │   └── strings
+│           │   │   │   │   │       │   ├── logical
+│           │   │   │   │   │       │   ├── matrix
+│           │   │   │   │   │       │   ├── nona
+│           │   │   │   │   │       │   ├── operators
+│           │   │   │   │   │       │   └── tools
+│           │   │   │   │   │       ├── traits
+│           │   │   │   │   │       ├── utils
+│           │   │   │   │   │       │   └── tinyformat
+│           │   │   │   │   │       └── vector
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── prompt
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── skeleton
+│           │   │   │   │   └── tinytest
+│           │   │   │   │       ├── bin
+│           │   │   │   │       │   ├── amd64
+│           │   │   │   │       │   └── i386
+│           │   │   │   │       ├── cpp
+│           │   │   │   │       ├── src
+│           │   │   │   │       ├── testRcppAttributePackage
+│           │   │   │   │       │   └── src
+│           │   │   │   │       ├── testRcppClass
+│           │   │   │   │       │   ├── man
+│           │   │   │   │       │   ├── R
+│           │   │   │   │       │   ├── src
+│           │   │   │   │       │   └── tests
+│           │   │   │   │       ├── testRcppInterfaceExporter
+│           │   │   │   │       │   ├── inst
+│           │   │   │   │       │   │   └── include
+│           │   │   │   │       │   ├── R
+│           │   │   │   │       │   └── src
+│           │   │   │   │       ├── testRcppInterfaceUser
+│           │   │   │   │       │   ├── R
+│           │   │   │   │       │   ├── src
+│           │   │   │   │       │   └── tests
+│           │   │   │   │       ├── testRcppModule
+│           │   │   │   │       │   ├── man
+│           │   │   │   │       │   ├── R
+│           │   │   │   │       │   ├── src
+│           │   │   │   │       │   └── tests
+│           │   │   │   │       └── testRcppPackage
+│           │   │   │   │           ├── man
+│           │   │   │   │           ├── R
+│           │   │   │   │           └── src
+│           │   │   │   ├── RcppTOML
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   │   └── toml++
+│           │   │   │   │   │       └── impl
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── tinytest
+│           │   │   │   │   └── toml
+│           │   │   │   ├── readr
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── readxl
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── rematch
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── rematch2
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── renv
+│           │   │   │   │   ├── bin
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── ext
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── repos
+│           │   │   │   │   │   └── src
+│           │   │   │   │   │       └── contrib
+│           │   │   │   │   ├── resources
+│           │   │   │   │   │   └── vendor
+│           │   │   │   │   ├── rstudio
+│           │   │   │   │   ├── schema
+│           │   │   │   │   └── sysreqs
+│           │   │   │   ├── reprex
+│           │   │   │   │   ├── addins
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── rmarkdown
+│           │   │   │   │   │   └── templates
+│           │   │   │   │   │       ├── reprex-featureful
+│           │   │   │   │   │       │   └── skeleton
+│           │   │   │   │   │       └── reprex-minimal
+│           │   │   │   │   │           └── skeleton
+│           │   │   │   │   ├── rstudio
+│           │   │   │   │   └── templates
+│           │   │   │   ├── rlang
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── rmarkdown
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── rmarkdown
+│           │   │   │   │   │   ├── highlight
+│           │   │   │   │   │   ├── lua
+│           │   │   │   │   │   └── templates
+│           │   │   │   │   │       ├── github_document
+│           │   │   │   │   │       │   ├── resources
+│           │   │   │   │   │       │   └── skeleton
+│           │   │   │   │   │       └── html_vignette
+│           │   │   │   │   │           ├── resources
+│           │   │   │   │   │           └── skeleton
+│           │   │   │   │   ├── rmd
+│           │   │   │   │   │   ├── fragment
+│           │   │   │   │   │   ├── h
+│           │   │   │   │   │   │   ├── accessibility
+│           │   │   │   │   │   │   ├── anchor-sections
+│           │   │   │   │   │   │   ├── bootstrap
+│           │   │   │   │   │   │   │   ├── css
+│           │   │   │   │   │   │   │   │   └── fonts
+│           │   │   │   │   │   │   │   ├── fonts
+│           │   │   │   │   │   │   │   ├── js
+│           │   │   │   │   │   │   │   └── shim
+│           │   │   │   │   │   │   ├── highlightjs
+│           │   │   │   │   │   │   ├── ionicons
+│           │   │   │   │   │   │   │   ├── css
+│           │   │   │   │   │   │   │   └── fonts
+│           │   │   │   │   │   │   ├── jqueryui
+│           │   │   │   │   │   │   │   └── images
+│           │   │   │   │   │   │   ├── navigation-1.1
+│           │   │   │   │   │   │   ├── pagedtable-1.1
+│           │   │   │   │   │   │   │   ├── css
+│           │   │   │   │   │   │   │   └── js
+│           │   │   │   │   │   │   ├── pandoc
+│           │   │   │   │   │   │   ├── rmarkdown
+│           │   │   │   │   │   │   ├── rsiframe-1.1
+│           │   │   │   │   │   │   ├── tabset
+│           │   │   │   │   │   │   └── tocify
+│           │   │   │   │   │   ├── ioslides
+│           │   │   │   │   │   │   └── ioslides-13.5.1
+│           │   │   │   │   │   │       ├── fonts
+│           │   │   │   │   │   │       ├── images
+│           │   │   │   │   │   │       ├── js
+│           │   │   │   │   │   │       │   ├── polyfills
+│           │   │   │   │   │   │       │   └── prettify
+│           │   │   │   │   │   │       └── theme
+│           │   │   │   │   │   │           └── css
+│           │   │   │   │   │   ├── latex
+│           │   │   │   │   │   ├── site
+│           │   │   │   │   │   └── slidy
+│           │   │   │   │   │       └── Slidy2
+│           │   │   │   │   │           ├── graphics
+│           │   │   │   │   │           ├── scripts
+│           │   │   │   │   │           └── styles
+│           │   │   │   │   └── rstudio
+│           │   │   │   │       └── templates
+│           │   │   │   │           └── project
+│           │   │   │   ├── rsconnect
+│           │   │   │   │   ├── cert
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── examples
+│           │   │   │   │   │   ├── diamonds
+│           │   │   │   │   │   └── sessioninfo
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── resources
+│           │   │   │   ├── rstudioapi
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── resources
+│           │   │   │   ├── rvest
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── html-ex
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── S7
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── sass
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── examples
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── sass-color
+│           │   │   │   │   │   └── rsconnect
+│           │   │   │   │   │       └── shinyapps.io
+│           │   │   │   │   │           └── gallery
+│           │   │   │   │   ├── sass-font
+│           │   │   │   │   │   └── rsconnect
+│           │   │   │   │   │       └── shinyapps.io
+│           │   │   │   │   │           └── gallery
+│           │   │   │   │   ├── sass-size
+│           │   │   │   │   │   └── rsconnect
+│           │   │   │   │   │       └── shinyapps.io
+│           │   │   │   │   │           └── gallery
+│           │   │   │   │   └── sass-theme
+│           │   │   │   │       └── rsconnect
+│           │   │   │   │           └── shinyapps.io
+│           │   │   │   │               └── gallery
+│           │   │   │   ├── scales
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── selectr
+│           │   │   │   │   ├── demos
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── shiny
+│           │   │   │   │   ├── app_template
+│           │   │   │   │   │   ├── R
+│           │   │   │   │   │   └── tests
+│           │   │   │   │   │       └── testthat
+│           │   │   │   │   ├── diagrams
+│           │   │   │   │   ├── examples
+│           │   │   │   │   │   ├── 01_hello
+│           │   │   │   │   │   ├── 02_text
+│           │   │   │   │   │   ├── 03_reactivity
+│           │   │   │   │   │   ├── 04_mpg
+│           │   │   │   │   │   ├── 05_sliders
+│           │   │   │   │   │   ├── 06_tabsets
+│           │   │   │   │   │   ├── 07_widgets
+│           │   │   │   │   │   ├── 09_upload
+│           │   │   │   │   │   ├── 10_download
+│           │   │   │   │   │   └── 11_timer
+│           │   │   │   │   ├── examples-shiny
+│           │   │   │   │   │   ├── 01_hello
+│           │   │   │   │   │   ├── 02_text
+│           │   │   │   │   │   ├── 03_reactivity
+│           │   │   │   │   │   ├── 04_mpg
+│           │   │   │   │   │   ├── 05_sliders
+│           │   │   │   │   │   ├── 06_tabsets
+│           │   │   │   │   │   ├── 07_widgets
+│           │   │   │   │   │   ├── 08_html
+│           │   │   │   │   │   │   └── www
+│           │   │   │   │   │   ├── 09_upload
+│           │   │   │   │   │   ├── 10_download
+│           │   │   │   │   │   └── 11_timer
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── template
+│           │   │   │   │   ├── www
+│           │   │   │   │   │   └── shared
+│           │   │   │   │   │       ├── bootstrap
+│           │   │   │   │   │       │   ├── accessibility
+│           │   │   │   │   │       │   │   ├── css
+│           │   │   │   │   │       │   │   └── js
+│           │   │   │   │   │       │   ├── css
+│           │   │   │   │   │       │   ├── fonts
+│           │   │   │   │   │       │   └── js
+│           │   │   │   │   │       ├── busy-indicators
+│           │   │   │   │   │       │   └── spinners
+│           │   │   │   │   │       ├── datatables
+│           │   │   │   │   │       │   ├── css
+│           │   │   │   │   │       │   ├── images
+│           │   │   │   │   │       │   └── js
+│           │   │   │   │   │       ├── datepicker
+│           │   │   │   │   │       │   ├── css
+│           │   │   │   │   │       │   ├── js
+│           │   │   │   │   │       │   │   └── locales
+│           │   │   │   │   │       │   └── scss
+│           │   │   │   │   │       ├── highlight
+│           │   │   │   │   │       ├── ionrangeslider
+│           │   │   │   │   │       │   ├── css
+│           │   │   │   │   │       │   ├── js
+│           │   │   │   │   │       │   └── scss
+│           │   │   │   │   │       ├── jqueryui
+│           │   │   │   │   │       │   └── images
+│           │   │   │   │   │       ├── legacy
+│           │   │   │   │   │       ├── selectize
+│           │   │   │   │   │       │   ├── accessibility
+│           │   │   │   │   │       │   │   └── js
+│           │   │   │   │   │       │   ├── css
+│           │   │   │   │   │       │   ├── js
+│           │   │   │   │   │       │   └── scss
+│           │   │   │   │   │       │       └── plugins
+│           │   │   │   │   │       ├── shiny_scss
+│           │   │   │   │   │       └── strftime
+│           │   │   │   │   └── www-dir
+│           │   │   │   ├── snowflakeauth
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── sourcetools
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   │   └── sourcetools
+│           │   │   │   │   │       ├── collection
+│           │   │   │   │   │       ├── core
+│           │   │   │   │   │       ├── cursor
+│           │   │   │   │   │       ├── multibyte
+│           │   │   │   │   │       ├── platform
+│           │   │   │   │   │       ├── r
+│           │   │   │   │   │       ├── read
+│           │   │   │   │   │       │   ├── posix
+│           │   │   │   │   │       │   └── windows
+│           │   │   │   │   │       ├── tests
+│           │   │   │   │   │       ├── tokenization
+│           │   │   │   │   │       └── utf8
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── splines
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── stats
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── stats4
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── stringi
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── stringr
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── htmlwidgets
+│           │   │   │   │   │   └── lib
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── sys
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── systemfonts
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── tcltk
+│           │   │   │   │   ├── demo
+│           │   │   │   │   ├── exec
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── textshaping
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── lorem
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── tibble
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── tidyr
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── tidyselect
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── tidyverse
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── timechange
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── tinytex
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── tools
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── translations
+│           │   │   │   │   ├── ar
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── bn
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── ca
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── da
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── de
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── en
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── en_GB
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── en@quot
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── es
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── fa
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── fr
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── hi
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── hu
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── id
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── it
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── ja
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── ko
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── lt
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── ne
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── nn
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── pl
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── pt_BR
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── ru
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── sq
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── tr
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── ur
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   ├── zh_CN
+│           │   │   │   │   │   └── LC_MESSAGES
+│           │   │   │   │   └── zh_TW
+│           │   │   │   │       └── LC_MESSAGES
+│           │   │   │   ├── tzdb
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   │   ├── date
+│           │   │   │   │   │   └── tzdb
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── tzdata
+│           │   │   │   ├── utf8
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── utils
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── misc
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── Sweave
+│           │   │   │   ├── uuid
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── vctrs
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── viridisLite
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── vroom
+│           │   │   │   │   ├── bench
+│           │   │   │   │   │   ├── all_character-long
+│           │   │   │   │   │   ├── all_character-wide
+│           │   │   │   │   │   ├── all_numeric-long
+│           │   │   │   │   │   ├── all_numeric-wide
+│           │   │   │   │   │   ├── fwf
+│           │   │   │   │   │   ├── taxi
+│           │   │   │   │   │   ├── taxi_multiple
+│           │   │   │   │   │   └── taxi_writing
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── words
+│           │   │   │   ├── withr
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── writexl
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── xfun
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   ├── resources
+│           │   │   │   │   └── scripts
+│           │   │   │   ├── xml2
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── extdata
+│           │   │   │   │   ├── help
+│           │   │   │   │   │   └── figures
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── include
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   ├── R
+│           │   │   │   │   └── tests
+│           │   │   │   │       └── testthat
+│           │   │   │   │           └── _snaps
+│           │   │   │   ├── xtable
+│           │   │   │   │   ├── data
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   ├── yaml
+│           │   │   │   │   ├── doc
+│           │   │   │   │   ├── help
+│           │   │   │   │   ├── html
+│           │   │   │   │   ├── libs
+│           │   │   │   │   ├── Meta
+│           │   │   │   │   └── R
+│           │   │   │   └── zip
+│           │   │   │       ├── bin
+│           │   │   │       ├── help
+│           │   │   │       ├── html
+│           │   │   │       ├── libs
+│           │   │   │       ├── Meta
+│           │   │   │       └── R
+│           │   │   ├── modules
+│           │   │   └── share
+│           │   │       ├── dictionaries
+│           │   │       ├── encodings
+│           │   │       ├── java
+│           │   │       ├── licenses
+│           │   │       ├── make
+│           │   │       ├── R
+│           │   │       ├── Rd
+│           │   │       │   └── macros
+│           │   │       ├── sh
+│           │   │       └── texmf
+│           │   │           ├── bibtex
+│           │   │           │   ├── bib
+│           │   │           │   └── bst
+│           │   │           └── tex
+│           │   │               └── latex
+│           │   ├── s2n
+│           │   │   └── cmake
+│           │   │       ├── modules
+│           │   │       └── shared
+│           │   ├── sqlite3.40.0
+│           │   ├── tcl8
+│           │   │   ├── 8.4
+│           │   │   │   └── platform
+│           │   │   ├── 8.5
+│           │   │   └── 8.6
+│           │   │       └── tdbc
+│           │   ├── tcl8.6
+│           │   │   ├── bwidget
+│           │   │   │   ├── images
+│           │   │   │   └── lang
+│           │   │   ├── encoding
+│           │   │   ├── http1.0
+│           │   │   ├── msgs
+│           │   │   └── opt0.4
+│           │   ├── tdbc1.1.5
+│           │   ├── tdbcmysql1.1.5
+│           │   ├── tdbcodbc1.1.5
+│           │   ├── tdbcpostgres1.1.5
+│           │   ├── terminfo -> ../share/terminfo
+│           │   ├── thread2.8.8
+│           │   ├── tk8.6
+│           │   │   ├── demos
+│           │   │   │   └── images
+│           │   │   ├── images
+│           │   │   ├── msgs
+│           │   │   └── ttk
+│           │   └── Tktable2.10
+│           │       └── html
+│           ├── libexec
+│           │   └── gcc
+│           │       └── x86_64-conda-linux-gnu
+│           │           └── 15.2.0
+│           │               ├── install-tools
+│           │               └── plugin
+│           ├── sbin
+│           ├── share
+│           │   ├── aclocal
+│           │   ├── arrow
+│           │   │   └── gdb
+│           │   ├── azure-core-cpp
+│           │   ├── azure-identity-cpp
+│           │   ├── azure-storage-blobs-cpp
+│           │   ├── azure-storage-common-cpp
+│           │   ├── azure-storage-files-datalake-cpp
+│           │   ├── cmake
+│           │   │   └── nlohmann_json
+│           │   ├── doc
+│           │   │   ├── arrow
+│           │   │   ├── libjpeg-turbo
+│           │   │   ├── libssh2
+│           │   │   ├── libXt
+│           │   │   ├── orc
+│           │   │   ├── pcre2
+│           │   │   │   └── html
+│           │   │   └── readline
+│           │   ├── et
+│           │   ├── examples
+│           │   │   └── krb5
+│           │   ├── fontconfig
+│           │   │   └── conf.avail
+│           │   ├── gcc-15.2.0
+│           │   │   └── python
+│           │   │       └── libstdcxx
+│           │   │           └── v6
+│           │   ├── gdb
+│           │   │   └── auto-load
+│           │   │       ├── home
+│           │   │       │   └── pivan
+│           │   │       │       └── Proyectos
+│           │   │       │           └── epanew
+│           │   │       │               └── .pixi
+│           │   │       │                   └── envs
+│           │   │       │                       └── default
+│           │   │       │                           └── lib
+│           │   │       └── replace_this_section_with_absolute_slashed_path_to_CONDA_PREFIX
+│           │   │           └── lib
+│           │   ├── gettext
+│           │   │   └── its
+│           │   ├── gir-1.0
+│           │   ├── glib-2.0
+│           │   │   ├── codegen
+│           │   │   ├── dtds
+│           │   │   ├── gdb
+│           │   │   ├── gettext
+│           │   │   │   └── po
+│           │   │   ├── schemas
+│           │   │   └── valgrind
+│           │   ├── graphite2
+│           │   ├── grpc
+│           │   ├── icu
+│           │   │   └── 78.3
+│           │   │       └── config
+│           │   ├── info
+│           │   ├── keyutils
+│           │   ├── licenses
+│           │   │   ├── gcc
+│           │   │   ├── gcc-fortran
+│           │   │   ├── gcc-libs
+│           │   │   ├── libgfortran
+│           │   │   └── libstdc++
+│           │   ├── locale
+│           │   │   ├── ab
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── af
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── am
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── an
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ar
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── as
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ast
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── az
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── be
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── be@latin
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── bg
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── bn
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── bn_IN
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── bs
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ca
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ca@valencia
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── cs
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── cy
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── da
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── de
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── dz
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── el
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── en_CA
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── en_GB
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── en@shaw
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── en_US
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── eo
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── es
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── et
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── eu
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── fa
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── fi
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── fr
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── fur
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ga
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── gd
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── gl
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── gu
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── he
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── hi
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── hr
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── hu
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── hy
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── id
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ie
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── is
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── it
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ja
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ka
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── kab
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── kk
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── kn
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ko
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ku
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── lt
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── lv
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── mai
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── mg
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── mk
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ml
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── mn
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── mr
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ms
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── nb
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── nds
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ne
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── nl
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── nn
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── oc
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── or
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── pa
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── pl
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ps
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── pt
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── pt_BR
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── rm
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ro
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ru
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── rw
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── si
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── sk
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── sl
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── sq
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── sr
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── sr@ije
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── sr@latin
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── sv
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ta
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── te
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── tg
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── th
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── tl
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── tr
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── tt
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── ug
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── uk
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── vi
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── wa
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── xh
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── yi
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── zh_CN
+│           │   │   │   └── LC_MESSAGES
+│           │   │   ├── zh_HK
+│           │   │   │   └── LC_MESSAGES
+│           │   │   └── zh_TW
+│           │   │       └── LC_MESSAGES
+│           │   ├── man
+│           │   │   ├── man1
+│           │   │   ├── man3
+│           │   │   ├── man5
+│           │   │   ├── man7
+│           │   │   └── man8
+│           │   ├── pkgconfig
+│           │   ├── tabset
+│           │   ├── terminfo
+│           │   │   ├── 31
+│           │   │   ├── 32
+│           │   │   ├── 33
+│           │   │   ├── 34
+│           │   │   ├── 35
+│           │   │   ├── 36
+│           │   │   ├── 37
+│           │   │   ├── 38
+│           │   │   ├── 39
+│           │   │   ├── 41
+│           │   │   ├── 45
+│           │   │   ├── 4c
+│           │   │   ├── 4d
+│           │   │   ├── 4e
+│           │   │   ├── 50
+│           │   │   ├── 51
+│           │   │   ├── 58
+│           │   │   ├── 61
+│           │   │   ├── 62
+│           │   │   ├── 63
+│           │   │   ├── 64
+│           │   │   ├── 65
+│           │   │   ├── 66
+│           │   │   ├── 67
+│           │   │   ├── 68
+│           │   │   ├── 69
+│           │   │   ├── 6a
+│           │   │   ├── 6b
+│           │   │   ├── 6c
+│           │   │   ├── 6d
+│           │   │   ├── 6e
+│           │   │   ├── 6f
+│           │   │   ├── 70
+│           │   │   ├── 71
+│           │   │   ├── 72
+│           │   │   ├── 73
+│           │   │   ├── 74
+│           │   │   ├── 75
+│           │   │   ├── 76
+│           │   │   ├── 77
+│           │   │   ├── 78
+│           │   │   └── 7a
+│           │   ├── WebP
+│           │   │   └── cmake
+│           │   ├── X11
+│           │   │   └── locale
+│           │   │       ├── am_ET.UTF-8
+│           │   │       ├── armscii-8
+│           │   │       ├── C
+│           │   │       ├── cs_CZ.UTF-8
+│           │   │       ├── el_GR.UTF-8
+│           │   │       ├── en_US.UTF-8
+│           │   │       ├── fi_FI.UTF-8
+│           │   │       ├── georgian-academy
+│           │   │       ├── georgian-ps
+│           │   │       ├── ibm-cp1133
+│           │   │       ├── iscii-dev
+│           │   │       ├── isiri-3342
+│           │   │       ├── iso8859-1
+│           │   │       ├── iso8859-10
+│           │   │       ├── iso8859-11
+│           │   │       ├── iso8859-13
+│           │   │       ├── iso8859-14
+│           │   │       ├── iso8859-15
+│           │   │       ├── iso8859-2
+│           │   │       ├── iso8859-3
+│           │   │       ├── iso8859-4
+│           │   │       ├── iso8859-5
+│           │   │       ├── iso8859-6
+│           │   │       ├── iso8859-7
+│           │   │       ├── iso8859-8
+│           │   │       ├── iso8859-9
+│           │   │       ├── iso8859-9e
+│           │   │       ├── ja
+│           │   │       ├── ja.JIS
+│           │   │       ├── ja_JP.UTF-8
+│           │   │       ├── ja.SJIS
+│           │   │       ├── km_KH.UTF-8
+│           │   │       ├── ko
+│           │   │       ├── koi8-c
+│           │   │       ├── koi8-r
+│           │   │       ├── koi8-u
+│           │   │       ├── ko_KR.UTF-8
+│           │   │       ├── microsoft-cp1251
+│           │   │       ├── microsoft-cp1255
+│           │   │       ├── microsoft-cp1256
+│           │   │       ├── mulelao-1
+│           │   │       ├── nokhchi-1
+│           │   │       ├── pt_BR.UTF-8
+│           │   │       ├── pt_PT.UTF-8
+│           │   │       ├── ru_RU.UTF-8
+│           │   │       ├── sr_RS.UTF-8
+│           │   │       ├── tatar-cyr
+│           │   │       ├── th_TH
+│           │   │       ├── th_TH.UTF-8
+│           │   │       ├── tscii-0
+│           │   │       ├── vi_VN.tcvn
+│           │   │       ├── vi_VN.viscii
+│           │   │       ├── zh_CN
+│           │   │       ├── zh_CN.gb18030
+│           │   │       ├── zh_CN.gbk
+│           │   │       ├── zh_CN.UTF-8
+│           │   │       ├── zh_HK.big5
+│           │   │       ├── zh_HK.big5hkscs
+│           │   │       ├── zh_HK.UTF-8
+│           │   │       ├── zh_TW
+│           │   │       ├── zh_TW.big5
+│           │   │       └── zh_TW.UTF-8
+│           │   ├── xml
+│           │   │   └── fontconfig
+│           │   └── zoneinfo
+│           │       ├── Africa
+│           │       ├── America
+│           │       │   ├── Argentina
+│           │       │   ├── Indiana
+│           │       │   ├── Kentucky
+│           │       │   └── North_Dakota
+│           │       ├── Antarctica
+│           │       ├── Arctic
+│           │       ├── Asia
+│           │       ├── Atlantic
+│           │       ├── Australia
+│           │       ├── Brazil
+│           │       ├── build
+│           │       │   └── etc
+│           │       ├── Canada
+│           │       ├── Chile
+│           │       ├── Etc
+│           │       ├── Europe
+│           │       ├── Indian
+│           │       ├── Mexico
+│           │       ├── Pacific
+│           │       └── US
+│           ├── ssl
+│           │   ├── certs
+│           │   └── misc
+│           ├── var
+│           │   └── cache
+│           │       └── fontconfig
+│           └── x86_64-conda-linux-gnu
+│               ├── bin
+│               ├── lib
+│               │   └── ldscripts
+│               └── sysroot
+│                   ├── etc
+│                   ├── lib -> lib64
+│                   ├── lib64
+│                   ├── sbin
+│                   └── usr
+│                       ├── bin
+│                       ├── include
+│                       │   ├── arpa
+│                       │   ├── asm
+│                       │   ├── asm-generic
+│                       │   ├── bits
+│                       │   │   └── types
+│                       │   ├── drm
+│                       │   ├── finclude
+│                       │   ├── gnu
+│                       │   ├── linux
+│                       │   │   ├── android
+│                       │   │   ├── byteorder
+│                       │   │   ├── caif
+│                       │   │   ├── can
+│                       │   │   ├── cifs
+│                       │   │   ├── dvb
+│                       │   │   ├── genwqe
+│                       │   │   ├── hdlc
+│                       │   │   ├── hsi
+│                       │   │   ├── iio
+│                       │   │   ├── isdn
+│                       │   │   ├── mmc
+│                       │   │   ├── netfilter
+│                       │   │   │   └── ipset
+│                       │   │   ├── netfilter_arp
+│                       │   │   ├── netfilter_bridge
+│                       │   │   ├── netfilter_ipv4
+│                       │   │   ├── netfilter_ipv6
+│                       │   │   ├── nfsd
+│                       │   │   ├── raid
+│                       │   │   ├── sched
+│                       │   │   ├── spi
+│                       │   │   ├── sunrpc
+│                       │   │   ├── tc_act
+│                       │   │   ├── tc_ematch
+│                       │   │   ├── usb
+│                       │   │   └── wimax
+│                       │   ├── misc
+│                       │   ├── mtd
+│                       │   ├── net
+│                       │   ├── netash
+│                       │   ├── netatalk
+│                       │   ├── netax25
+│                       │   ├── neteconet
+│                       │   ├── netinet
+│                       │   ├── netipx
+│                       │   ├── netiucv
+│                       │   ├── netpacket
+│                       │   ├── netrom
+│                       │   ├── netrose
+│                       │   ├── nfs
+│                       │   ├── perf
+│                       │   ├── protocols
+│                       │   ├── rdma
+│                       │   │   └── hfi
+│                       │   ├── rpc
+│                       │   ├── scsi
+│                       │   │   └── fc
+│                       │   ├── sound
+│                       │   │   ├── intel
+│                       │   │   │   └── avs
+│                       │   │   └── sof
+│                       │   ├── sys
+│                       │   ├── video
+│                       │   └── xen
+│                       ├── lib -> lib64
+│                       ├── lib64
+│                       │   ├── audit
+│                       │   ├── gconv
+│                       │   │   └── gconv-modules.d
+│                       │   └── locale
+│                       │       └── C.utf8
+│                       │           └── LC_MESSAGES
+│                       ├── libexec
+│                       │   └── getconf
+│                       ├── sbin
+│                       └── share
+│                           ├── licenses
+│                           │   └── glibc
+│                           ├── locale
+│                           └── zoneinfo -> ../../../../share/zoneinfo
+├── .Rproj.user
+│   ├── D14515F1
+│   │   ├── bibliography-index
+│   │   ├── ctx
+│   │   ├── explorer-cache
+│   │   ├── pcs
+│   │   ├── presentation
+│   │   ├── profiles-cache
+│   │   ├── sources
+│   │   │   ├── per
+│   │   │   │   ├── t
+│   │   │   │   └── u
+│   │   │   └── prop
+│   │   ├── tutorial
+│   │   ├── viewer-cache
+│   │   └── viewer_history
+│   └── shared
+│       └── notebooks
+└── scr
+    ├── read_data
+    ├── recuentos
+    └── update_tri
+
+2942 directories

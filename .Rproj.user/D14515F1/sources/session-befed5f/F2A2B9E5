@@ -1,0 +1,27 @@
+{
+    "id": "F2A2B9E5",
+    "path": "~/Proyectos/epanew/scr/recuentos/procesamiento_recuentos.R",
+    "project_path": "scr/recuentos/procesamiento_recuentos.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1779108792842.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "517,31",
+        "scrollLine": "0",
+        "docOutlineVisible": "1"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1779112059,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1779112059897,
+    "read_only": false,
+    "read_only_alternatives": []
+}

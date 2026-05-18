@@ -1,11 +1,55 @@
-# Pixi environments
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Environments
 .pixi/
-!.pixi/config.toml
+.venv/
+venv/
+env/
+
+# R
+.Rhistory
+.RData
+.Ruserdata
+
+# Build / logs
+build/
+dist/
+*.log
 
 # Data
 data/
 
-# Documents
-documentos/
-.Rproj.user/
-.RData/
+# Large data files
+*.parquet
+*.feather
+*.fst
+*.rds
+*.duckdb
+*.sqlite
+
+# Archives
+*.zip
+*.tar.gz
+
+# Quarto / notebooks
+*_files/
+*.html
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+secrets/
