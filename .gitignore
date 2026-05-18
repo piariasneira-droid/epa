@@ -7,4 +7,5 @@ data/
 
 # Documents
 documentos/
-.Rproj.user
+.Rproj.user/
+.RData/
