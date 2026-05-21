@@ -31,9 +31,13 @@
 #' @param ciclo    CICLO string, e.g. "168".
 #' @return Full path to the parquet file that should be written.
 .partition_path <- function(base_dir, ciclo) {
-  dir <- file.path(base_dir, paste0("ciclo=", ciclo))
+  # Forzamos que la variable local sea texto sin comillas raras
+  ciclo_str <- as.character(ciclo) 
+  
+  dir <- file.path(base_dir, paste0("CICLO=", ciclo_str))
   dir.create(dir, recursive = TRUE, showWarnings = FALSE)
-  file.path(dir, "part.parquet")
+  
+  return(file.path(dir, "part.parquet"))
 }
 
 #' Checks whether a partition already exists.
@@ -329,209 +333,42 @@ combine_epa_duckdb <- function(
   invisible(output_file)
 }
 
-# update_epa_microdata_flat.R
-# Function: update_epa_microdata_flat
-#
-# Purpose:
-#   Called AFTER append_quarterly_partition() has written the new ciclo
-#   partition into ./data/microprocessed/.
-#   Reads the existing flat parquet (epa_microdata_partitioned.parquet),
-#   appends the new ciclo's data, and overwrites the flat file in place.
-#
-# Usage (in actualizacion_trimestral_particionado.R):
-#   append_quarterly_partition(trimestre_carga)
-#   update_epa_microdata_flat(trimestre_carga)
-#
-# Arguments:
-#   quarter_to_load  Character. Quarter label to append, e.g. "2026T1".
-#                    Used only to locate the matching partition folder and
-#                    for logging — the CICLO integer is read from the data.
-#   flat_file        Full path to the flat parquet that accumulates all data.
-#                    Default: "./data/microdatos/epa_microdata_partitioned.parquet"
-#   base_dir         Root of the Hive-partitioned tree.
-#                    Default: "./data/microprocessed"
-#   overwrite        If FALSE (default) and the ciclo is already present in
-#                    the flat file, the function exits without writing.
-#                    Set TRUE to force re-addition of that ciclo.
-
-
 update_epa_microdata_flat <- function(
-    quarter_to_load,
-    flat_file = "./data/microdatos/epa_microdata_partitioned.parquet",
+    flat_file = "./data/microdatos/epa_microdata.parquet",
     base_dir  = "./data/microprocessed",
     overwrite = FALSE
 ) {
+  cat(">> Scanning base directory using Arrow dataset layout...\n")
   
-  cat("╔══════════════════════════════════════════╗\n")
-  cat("║  UPDATE EPA MICRODATA FLAT PARQUET       ║\n")
-  cat("╚══════════════════════════════════════════╝\n\n")
+  # Open the entire directory lazily without loading data into memory ───
+  ds <- open_epa_dataset(base_dir)
   
-  # Locate the new partition written by append_quarterly_partition()
-  partition_dirs <- list.dirs(base_dir, recursive = FALSE, full.names = TRUE)
-  new_part_file  <- NULL
-  new_ciclo      <- NULL
-  
-  for (d in partition_dirs) {
-    part_parquet <- file.path(d, "part.parquet")
-    if (!file.exists(part_parquet)) next
-    
-    # Read one row to check CICLO (fast)
-    sample <- arrow::read_parquet(
-      part_parquet,
-      col_select = dplyr::any_of(c("CICLO", "ciclo"))
-    )
-    
-    ciclo_val <- if ("CICLO" %in% names(sample)) {
-      as.character(sample$CICLO[1])
-    } else if ("ciclo" %in% names(sample)) {
-      as.character(sample$ciclo[1])
-    } else {
-      NA_character_
-    }
-    
-    # Match the partition folder name to quarter_to_load
-    folder_name <- basename(d)
-    part_mtime  <- file.mtime(part_parquet)
-    
-    if (is.null(new_part_file) || part_mtime > file.mtime(new_part_file)) {
-      new_part_file <- part_parquet
-      new_ciclo     <- ciclo_val
-    }
-  }
-  
-  # Safer: resolve via quarter_to_load directly through the src file
-  # (mirrors append_quarterly_partition logic)
-  src_tab <- file.path("./data/microdatos/csvs_desde_24",
-                       paste0("EPA_", quarter_to_load, ".tab"))
-  
-  if (file.exists(src_tab)) {
-    # Re-derive ciclo from original tab source (most reliable)
-    dt_sample <- data.table::fread(
-      src_tab, sep = "\t", colClasses = "character",
-      nrows = 1, header = TRUE, nThread = 4
-    )
-    new_ciclo <- as.character(dt_sample[1, CICLO])
-    cat(">> Ciclo derived from source TAB:", new_ciclo, "\n")
-  } else {
-    cat(">> Source TAB not found; ciclo derived from newest partition:", new_ciclo, "\n")
-  }
-  
-  if (is.null(new_ciclo) || is.na(new_ciclo)) {
-    stop("Could not determine CICLO for quarter: ", quarter_to_load)
-  }
-  
-  # Confirm the partition parquet for this ciclo exists
-  ciclo_dir      <- file.path(base_dir, paste0("ciclo=", new_ciclo))
-  ciclo_parquet  <- file.path(ciclo_dir, "part.parquet")
-  
-  if (!file.exists(ciclo_parquet)) {
-    stop(
-      "Partition parquet not found for ciclo=", new_ciclo,
-      ".\nRun append_quarterly_partition(\"", quarter_to_load, "\") first.\n",
-      "Expected path: ", ciclo_parquet
-    )
-  }
-  
-  cat(">> New partition file  :", ciclo_parquet, "\n")
-  cat(">> Flat parquet target :", flat_file, "\n\n")
-  
-  # Guard: check if ciclo already in flat file
-  
+  # Check if the flat file is already up to date ───
   if (file.exists(flat_file) && !overwrite) {
-    cat(">> Scanning existing flat file for ciclo =", new_ciclo, "...\n")
+    cat(">> Checking if flat file is already up to date...\n")
     
-    existing_ciclos <- tryCatch({
-      tmp <- arrow::read_parquet(flat_file, col_select = dplyr::any_of(c("CICLO", "ciclo")))
-      col <- if ("CICLO" %in% names(tmp)) "CICLO" else "ciclo"
-      unique(as.character(tmp[[col]]))
-    }, error = function(e) {
-      warning("Could not read existing flat file to check ciclos: ", conditionMessage(e))
-      character(0)
-    })
+    # Extract only the CICLO column from the flat file footer
+    ciclo_vector <- arrow::read_parquet(flat_file, col_select = "CICLO")[[1]]
+    max_ciclo_existing <- max(as.integer(ciclo_vector), na.rm = TRUE)
     
-    if (new_ciclo %in% existing_ciclos) {
-      message(
-        "Ciclo ", new_ciclo, " already present in flat file. ",
-        "Use overwrite = TRUE to force re-addition."
-      )
-      return(invisible(NULL))
+    # Extract available cycles from the directory structure
+    ciclo_dirs <- list.dirs(base_dir, recursive = FALSE, full.names = FALSE)
+    ciclo_nums <- as.integer(sub("^ciclo=", "", ciclo_dirs))
+    max_ciclo_dir <- max(ciclo_nums, na.rm = TRUE)
+    
+    if (max_ciclo_dir <= max_ciclo_existing) {
+      message("Already up to date (max CICLO = ", max_ciclo_existing, ").")
+      return(invisible(flat_file))
     }
-    cat("   >> Ciclo", new_ciclo, "not yet present — proceeding.\n\n")
+    
+    cat(">> New data detected. Rebuilding flat file from dataset...\n")
   }
   
-  # Read data
+  cat(">> Streaming and compressing all partitions into flat file...\n")
   
-  start_time <- Sys.time()
+  # Stream the lazy dataset directly into the single flat Parquet file ───
+  arrow::write_parquet(ds, flat_file)
   
-  # Read new quarter partition
-  cat(">> Reading new partition (ciclo =", new_ciclo, ")...\n")
-  dt_new <- data.table::as.data.table(arrow::read_parquet(ciclo_parquet))
-  cat("   Rows:", format(nrow(dt_new), big.mark = ","),
-      " | Cols:", ncol(dt_new), "\n")
-  
-  # Read existing flat parquet (if it exists)
-  if (file.exists(flat_file)) {
-    cat(">> Reading existing flat parquet...\n")
-    dt_existing <- data.table::as.data.table(arrow::read_parquet(flat_file))
-    cat("   Rows:", format(nrow(dt_existing), big.mark = ","),
-        " | Cols:", ncol(dt_existing), "\n\n")
-    
-    # Align schemas (union_by_name style)
-    cols_existing <- names(dt_existing)
-    cols_new      <- names(dt_new)
-    
-    only_in_new      <- setdiff(cols_new, cols_existing)
-    only_in_existing <- setdiff(cols_existing, cols_new)
-    
-    if (length(only_in_new) > 0) {
-      cat(">> New columns not in existing flat file (filled with NA):\n   ",
-          paste(only_in_new, collapse = ", "), "\n")
-      dt_existing[, (only_in_new) := NA_character_]
-    }
-    
-    if (length(only_in_existing) > 0) {
-      cat(">> Existing columns not in new partition (filled with NA):\n   ",
-          paste(only_in_existing, collapse = ", "), "\n")
-      dt_new[, (only_in_existing) := NA_character_]
-    }
-    
-    # Bind & write 
-    cat(">> Binding rows...\n")
-    dt_combined <- data.table::rbindlist(
-      list(dt_existing, dt_new),
-      use.names = TRUE,
-      fill      = TRUE
-    )
-  } else {
-    cat(">> Flat file does not exist yet — creating from new partition only.\n\n")
-    dt_combined <- dt_new
-  }
-  
-  cat(">> Combined dataset:",
-      format(nrow(dt_combined), big.mark = ","), "rows |",
-      ncol(dt_combined), "cols\n")
-  
-  # Ensure output directory exists
-  out_dir <- dirname(flat_file)
-  if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
-  
-  cat(">> Writing updated flat parquet...\n")
-  arrow::write_parquet(dt_combined, sink = flat_file)
-  
-  elapsed       <- Sys.time() - start_time
-  file_size_mb  <- file.size(flat_file) / 1024^2
-  
-  cat("\n╔══════════════════════════════════════════╗\n")
-  cat("║  ✅ FLAT PARQUET UPDATED SUCCESSFULLY    ║\n")
-  cat("╚══════════════════════════════════════════╝\n\n")
-  cat("📊 Results:\n")
-  cat("   Output file :", flat_file, "\n")
-  cat("   Total rows  :", format(nrow(dt_combined), big.mark = ","), "\n")
-  cat("   Total cols  :", ncol(dt_combined), "\n")
-  cat("   File size   :", round(file_size_mb, 1), "MB\n")
-  cat("   Time taken  :", format(elapsed), "\n\n")
-  
+  cat(">> Done! Flat file updated successfully:", flat_file, "\n")
   invisible(flat_file)
 }
-
-

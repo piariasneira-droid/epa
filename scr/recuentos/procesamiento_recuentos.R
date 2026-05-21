@@ -1,43 +1,65 @@
-# procesamiento_recuentos.R
-# Data loading ----
+open_epa_dataset <- function(base_dir = "./data/microprocessed") {
+  arrow::open_dataset(
+    base_dir, 
+    partitioning = arrow::schema(CICLO = arrow::string()), 
+    format = "parquet"
+  )
+}
 
-#' Load EPA microdata from a parquet file into a data.table
+#' Load EPA microdata from a parquet file or partitioned directory into a data.table
 #'
 #' Arrow is used only for efficient columnar reading; the result is immediately
 #' materialised as a data.table so all downstream functions stay in data.table.
 #'
-#' @param path         Path to the parquet file
+#' @param path         Path to the parquet file or partitioned directory
 #' @param cols         Character vector of columns to load (NULL = all)
 #' @param types        Named list of target types per column (NULL = keep as-is)
 #' @return             A data.table
 load_microdata <- function(path, cols = NULL, types = NULL) {
-  ds <- arrow::open_dataset(path)
-  
-  if (!is.null(cols)) {
-    ds <- ds |> dplyr::select(dplyr::all_of(cols))
+  # 1. Handle both a single flat file or a partitioned directory
+  if (dir.exists(path)) {
+    ds <- open_epa_dataset(path)
+  } else {
+    ds <- arrow::open_dataset(path)
   }
   
+  # 2. Select columns cleanly using dplyr verbs
+  # CRITICAL: We use any_of or ensure cols are present in the dataset schema
+  if (!is.null(cols)) {
+    # If CICLO is a partition variable, it MUST be included in the select statement
+    ds <- dplyr::select(ds, dplyr::all_of(cols))
+  }
+  
+  # 3. Bring into R directly as a data.table
+  # Collecting first yields an Arrow Table, then we convert to data.table
   dt <- data.table::as.data.table(dplyr::collect(ds))
   
-  # Enforce column types if provided
+  # 4. Efficiently enforce column types with memory-safe reference assignment
   if (!is.null(types)) {
-    for (col in intersect(names(dt), names(types))) {
+    # We use intersect to only loop through columns that actually exist in dt
+    cols_to_convert <- intersect(names(dt), names(types))
+    
+    for (col in cols_to_convert) {
       target <- types[[col]]
-      data.table::set(dt, j = col, value = switch(
+      
+      # Safely handle conversion without losing attributes
+      val <- dt[[col]]
+      converted_val <- switch(
         target,
-        character = as.character(dt[[col]]),
-        numeric   = ,
-        double    = as.numeric(dt[[col]]),
-        integer   = as.integer(dt[[col]]),
-        factor    = as.factor(dt[[col]]),
-        dt[[col]]   # pass-through for unknown types
-      ))
+        character = as.character(val),
+        numeric   = as.numeric(val),
+        double    = as.numeric(val),
+        integer   = as.integer(val),
+        factor    = as.factor(val),
+        val # Default fallback
+      )
+      
+      data.table::set(dt, j = col, value = converted_val)
     }
   }
   
-  dt
+  return(dt)
 }
-
 
 # Subtotals / marginal totals ----
 
@@ -178,9 +200,111 @@ count_aoi <- function(dt, weight_col, segment_cols = character(0)) {
   result
 }
 
+#' Reshape and rename population data (AOI) to wide format
+#'
+#' @param dt A data.table containing columns POB, TOTAL, CICLO, and CCAA.
+#' @param segment_cols A character vector with additional segmentation columns (e.g., seg_cols).
+#'
+#' @return A data.table in wide format with POB categories as columns.
+reshape_pob_wide <- function(dt, segment_cols = c()) {
+  dt_copy <- data.table::copy(dt)
+  
+  dt_copy[, POB := data.table::fcase(
+    POB %in% c(1, "1"),   "Empleados",
+    POB %in% c(2, "2"),   "Parados",
+    POB %in% c(3, "3"),   "Inactivos",
+    POB %in% c(4, "4"),   "Menores",
+    POB %in% c(11, "11"), "Activos",
+    POB %in% c(21, "21"), "PED",
+    POB %in% c(99, "99"), "Poblacion",
+    default = as.character(POB)
+  )]
+  
+  # Construct dynamic LHS formula for dcast
+  formula_lhs  <- paste(c("CICLO", segment_cols, "CCAA"), collapse = " + ")
+  formula_wide <- as.formula(paste(formula_lhs, "~ POB"))
+  
+  dt_wide <- data.table::dcast(dt_copy, formula_wide, value.var = "TOTAL")
+  
+  # Define and safely apply column ordering
+  col_order <- c("CICLO", segment_cols, "CCAA", 
+                 "Empleados", "Parados", "Inactivos", "Menores", "Activos", "PED", "Población")
+  
+  data.table::setcolorder(dt_wide, intersect(col_order, names(dt_wide)))
+  
+  # Order rows explicitly by key variables
+  data.table::setorder(dt_wide, CICLO, CCAA)
+  
+  return(dt_wide)
+}
+
+#' Calculate Labor Market Rates (Activity, Employment, Unemployment)
+#'
+#' @param dt A data.table in wide format containing columns Empleados, Parados, Activos, and PED.
+#'
+#' @return The same data.table with Tactividad, Templeabilidad, and Tparo columns added by reference.
+calculate_labor_rates <- function(dt) {
+  # Modify by reference using data.table's := operator for maximum efficiency
+  dt[, `:=`(
+    # Activity Rate = (Activos / Population Aged 16+) * 100
+    Tactividad      = (Activos / PED) * 100,
+    
+    # Employment Rate = (Empleados / Population Aged 16+) * 100
+    Templeabilidad  = (Empleados / PED) * 100,
+    
+    # Unemployment Rate = (Parados / Activos) * 100
+    Tparo           = (Parados / Activos) * 100
+  )]
+  
+  return(dt)
+}
+
+#' Calculate Annual Variations (YoY) for Labor Market Metrics
+#'
+#' @param dt A data.table containing wide population metrics and rates.
+#' @param segment_cols A character vector with additional segmentation columns (e.g., seg_cols).
+#'
+#' @return A new data.table with absolute differences (_dif) and percentage variations (_pct) appended.
+calculate_annual_variation <- function(dt, segment_cols = c()) {
+  dt_current <- data.table::copy(dt)
+  
+  target_cols <- c("Empleados", "Parados", "Inactivos", "Menores", "Activos",
+                   "PED", "Poblacion", "Tactividad", "Templeabilidad", "Tparo")
+  target_cols <- intersect(target_cols, names(dt_current))
+  
+  # Past table: shift CICLO forward by 4 so it aligns with current
+  dt_past <- data.table::copy(dt_current)[, .SD, .SDcols = c("CICLO", segment_cols, "CCAA", target_cols)]
+  dt_past[, CICLO := CICLO + 4L]   
+  past_cols <- paste0("past_", target_cols)
+  data.table::setnames(dt_past, old = target_cols, new = past_cols)
+  
+  # Join 
+  join_keys <- c("CICLO", segment_cols, "CCAA")
+  dt_joined <- dt_past[dt_current, on = join_keys]
+  
+  dif_cols <- paste0(target_cols, "_dif")
+  pct_cols <- paste0(target_cols, "_pct")
+  
+  dt_joined[, (dif_cols) := Map(`-`, mget(target_cols), mget(past_cols))]
+  dt_joined[, (pct_cols) := Map(function(d, p) (d / p) * 100, mget(dif_cols), mget(past_cols))]
+  
+  dt_joined[, (past_cols) := NULL]
+  data.table::setorder(dt_joined, CICLO, CCAA)
+  
+  return(dt_joined)
+}
+rename_annual_variation <- function(dt) {
+  dt <- data.table::copy(dt)
+  
+  # Rename _pct to _tv
+  pct_cols <- grep("_pct$", names(dt), value = TRUE)
+  tv_cols  <- gsub("_pct$", "_tv", pct_cols)
+  data.table::setnames(dt, pct_cols, tv_cols)
+  
+  return(dt)
+}
 
 # Household counts ----
-
 #' Internal helper: assign a household role label to each person
 .classify_household_roles <- function(dt) {
   dt[, HOUSEHOLD_ROLE := data.table::fcase(
@@ -555,15 +679,8 @@ add_quarterly_rznotb <- function(quarter_to_load, seg_cols,
     select(-FACTOREL)
   
   # Process quarter data 
-  quarter_rznotb <- count_hours(quarter_epa, FACTOR, segment_cols = seg_cols)
-  
-  quarter_rznotb_tot <- compute_subtotals(
-    quarter_rznotb[, !"HORAS_MED"],
-    marginal_cols = c("CCAA"),
-    value_cols    = c("TOTAL", "OCUPADOS_TRABAJANDO")
-  )
-  
-  quarter_rznotb_tot[, HORAS_MED := TOTAL / OCUPADOS_TRABAJANDO]
+  quarter_rznotb <- count_rznotb(quarter_epa, FACTOR, segment_cols = seg_cols)
+  quarter_rznotb_tot <- compute_subtotals(quarter_rznotb, c(seg_cols, "CCAA"), c("TOTAL"))
   
   # Read previous quarters 
   rznotb_up_to_t <- read_excel(rznotb_excel_path)
@@ -591,4 +708,84 @@ add_quarterly_rznotb <- function(quarter_to_load, seg_cols,
     col_dec = c("HORAS_MED"), 
     col_per = c(), col_char = c(), col_int2 = c()
   )
+}
+
+add_quarterly_aoi <- function(quarter_to_load, seg_cols,
+                              selected_columns = NULL,
+                              column_types = NULL) {
+  
+  # Path management
+  load_file_name  <- paste0("EPA_", quarter_to_load, ".tab")
+  microdata_dir   <- "./data/microdatos/csvs_desde_24"
+  load_file_path  <- file.path(microdata_dir, load_file_name)
+  aoi_excel_path  <- "./documentos/aoi_tasas.xlsx"
+  
+  # Load new quarter microdata
+  quarter_epa <- data.table::fread(load_file_path, select = selected_columns,
+                                   sep = "\t", colClasses = unlist(column_types))
+  quarter_epa <- quarter_epa %>%
+    dplyr::mutate(FACTOR = FACTOREL) %>%
+    dplyr::select(-FACTOREL)
+  
+  # Process: counts -> subtotals -> wide -> rates (NO variation yet)
+  quarter_aoi <- count_aoi(quarter_epa, FACTOR, segment_cols = seg_cols)
+  
+  quarter_aoi_tot <- compute_subtotals(
+    quarter_aoi,
+    marginal_cols = c(seg_cols, "CCAA"),
+    value_cols    = c("TOTAL")
+  )
+  
+  quarter_aoi_g   <- group_aoi(quarter_aoi_tot)
+  quarter_aoi_wide <- reshape_pob_wide(quarter_aoi_g, segment_cols = seg_cols)
+  quarter_rates   <- calculate_labor_rates(quarter_aoi_wide)
+  
+  # Check if already loaded
+  current_cycle  <- max(quarter_rates$CICLO, na.rm = TRUE)
+  
+  # Read historical file
+  aoi_up_to_t <- as.data.table(readxl::read_excel(aoi_excel_path))
+  existing_cycle <- max(as.numeric(aoi_up_to_t$CICLO), na.rm = TRUE)
+  
+  if (current_cycle == existing_cycle) {
+    message("AOI data for this quarter is already loaded.")
+    return(invisible(NULL))
+  }
+  
+  # Append new quarter (rates only, no variation cols)
+  rate_cols   <- c("CICLO", seg_cols, "CCAA",
+                   "Empleados", "Parados", "Inactivos", "Menores",
+                   "Activos", "PED", "Poblacion",
+                   "Tactividad", "Templeabilidad", "Tparo")
+  updated_aoi <- data.table::rbindlist(
+    list(aoi_up_to_t[, intersect(rate_cols, names(aoi_up_to_t)), with = FALSE],
+         quarter_rates[, intersect(rate_cols, names(quarter_rates)), with = FALSE]),
+    use.names = TRUE, fill = TRUE
+  )
+  data.table::setorder(updated_aoi, CICLO, CCAA)
+  
+  # Recompute annual variation across the full updated series
+  updated_aoi <- calculate_annual_variation(updated_aoi, segment_cols = seg_cols)
+  
+  # Write to Excel
+  write_excel_formatted(
+    dt         = updated_aoi,
+    sheet_name = "aoi_rates",
+    path       = aoi_excel_path,
+    col_int    = c("CICLO", "CCAA"),
+    col_mil    = c("Empleados", "Parados", "Inactivos", "Menores", "Activos", "PED", "Poblacion",
+                   "Empleados_dif", "Parados_dif", "Inactivos_dif", "Menores_dif",
+                   "Activos_dif", "PED_dif", "Poblacion_dif"),
+    col_dec    = c("Tactividad", "Templeabilidad", "Tparo",
+                   "Tactividad_dif", "Templeabilidad_dif", "Tparo_dif",
+                   "Tactividad_tv", "Templeabilidad_tv", "Tparo_tv",
+                   "Empleados_tv", "Parados_tv", "Inactivos_tv", "Menores_tv",
+                   "Activos_tv", "PED_tv", "Poblacion_tv"),
+    col_per    = character(0),
+    col_char   = character(0),
+    col_int2   = character(0)
+  )
+  
+  message("AOI rates updated through CICLO ", current_cycle)
+  invisible(aoi_excel_path)
 }

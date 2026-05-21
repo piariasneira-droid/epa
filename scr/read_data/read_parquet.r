@@ -1,1 +1,0 @@
-df <- arrow::read_parquet(file="./data/microdatos/epa_microdata.parquet")
