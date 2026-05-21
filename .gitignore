@@ -53,3 +53,4 @@ data/
 *.pem
 *.key
 secrets/.RData
+.Rproj.user

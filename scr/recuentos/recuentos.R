@@ -6,7 +6,8 @@ source("./scr/recuentos/procesamiento_recuentos.R")
 source("./scr/columnas_epa.R")
 
 # Configuration ----
-data_path  <- "./data/microdatos/epa_microdata.parquet"
+# data_path  <- "./data/microdatos/epa_microdata.parquet"
+data_path <- "./data/microdatos/epa_microdata_partitioned.parquet"
 output_dir <- "./documentos/horas_hogares"
 seg_cols   <- c()
 
@@ -39,7 +40,7 @@ households_tot <- compute_subtotals(
 data.table::setorder(households_tot, CICLO, CCAA)
 
 ## RZNOTB ----
-rznotb_tot <- compute_subtotals(rznotb, c(seg_cols, "CCAA"), c("Total"))
+rznotb_tot <- compute_subtotals(rznotb, c(seg_cols, "CCAA"), c("TOTAL"))
 data.table::setorder(rznotb_tot, CICLO, CCAA)
 
 ## Hours ----

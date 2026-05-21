@@ -132,6 +132,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-data.table-1.17.8-r45h1c8cec4_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-digest-0.6.39-r45h3697838_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-dplyr-1.2.1-r45h3697838_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/r-duckdb-1.5.2-r45h3697838_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-ellipsis-0.3.3-r45h54b55ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-fansi-1.0.7-r45h54b55ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-farver-2.1.2-r45h3697838_2.conda
@@ -1941,6 +1942,19 @@ packages:
   license_family: MIT
   size: 1445950
   timestamp: 1775207093582
+- conda: https://conda.anaconda.org/conda-forge/linux-64/r-duckdb-1.5.2-r45h3697838_0.conda
+  sha256: f7ce403549b834b6660f09ee5e68c08c67430c43d924d776cb172da3bcceea07
+  md5: 1540de484e32e109d48f3535bf9f9620
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - libstdcxx >=14
+  - r-base >=4.5,<4.6.0a0
+  - r-dbi
+  license: MIT
+  license_family: MIT
+  size: 15243122
+  timestamp: 1776129105292
 - conda: https://conda.anaconda.org/conda-forge/linux-64/r-ellipsis-0.3.3-r45h54b55ab_0.conda
   sha256: 19d03273f9d5e1aa41302e1cf080dcb95ced5b955bc978df39eee71a9686a86c
   md5: e43b3e7101a90ac57f58a21da67c99a4
