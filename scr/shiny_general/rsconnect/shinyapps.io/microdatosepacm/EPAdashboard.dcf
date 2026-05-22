@@ -1,0 +1,12 @@
+name: EPAdashboard
+title: EPAdashboard
+username: microdatosepacm
+account: microdatosepacm
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12522232
+bundleId: 9026975
+url: https://microdatosepacm.shinyapps.io/EPAdashboard/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

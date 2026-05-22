@@ -1,7 +1,7 @@
 # recuentos.R
 # Workspace ----
 
-source("./carga_librerias.R")
+source("./scr/carga_librerias.R")
 source("./scr/recuentos/procesamiento_recuentos.R")
 source("./scr/columnas_epa.R")
 
@@ -20,7 +20,7 @@ epa <- load_microdata(data_path,
 # Counts ----
 households <- count_households(epa, FACTOR, segment_cols = seg_cols)
 hours      <- count_hours(epa, FACTOR, segment_cols = seg_cols)
-rznotb     <- count_rznotb(epa, FACTOR, segment_cols = seg_cols)
+rznotb     <- count_rznotb(epa[HORASE == "0000"], FACTOR, segment_cols = seg_cols)
 
 # Subtotals ----
 ## Households ----
@@ -33,6 +33,7 @@ data.table::setorder(households_tot, CICLO, CCAA)
 
 ## RZNOTB ----
 rznotb_tot <- compute_subtotals(rznotb, c(seg_cols, "CCAA"), c("TOTAL"))
+rznotb_tot <- rznotb_tot[, .(TOTAL = sum(TOTAL)), by = c("CICLO", "CCAA", "RZNOTB", seg_cols)]
 data.table::setorder(rznotb_tot, CICLO, CCAA)
 
 ## Hours ----
@@ -67,5 +68,5 @@ write_excel_formatted(
   dt = rznotb_tot,
   sheet_name = "rznotb",
   path = path_filerz,
-  col_int = c("CICLO", "CCAA", "AOI", "RZNOTB"), col_mil = c("TOTAL"),
+  col_int = c("CICLO", "CCAA", "RZNOTB"), col_mil = c("TOTAL"),
   col_dec = c(), col_per = c(), col_char = c(), col_int2 =c())

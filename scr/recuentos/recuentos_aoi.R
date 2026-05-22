@@ -1,12 +1,11 @@
 # recuentos.R
 # Workspace ----
 
-source("./carga_librerias.R")
+source("./scr/carga_librerias.R")
 source("./scr/recuentos/procesamiento_recuentos.R")
 source("./scr/columnas_epa.R")
 
 # Configuration ----
-data_path  <- "./data/microdatos/epa_microdata.parquet"
 data_path <- "./data/microprocessed"
 path_file <- "./documentos/aoi_tasas.xlsx"
 seg_cols   <- c()
